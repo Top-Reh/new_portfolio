@@ -201,3 +201,398 @@ body::-webkit-scrollbar {
   opacity: 1;
   z-index: 20;
 }
+
+/* portfolio card */
+
+.portfoliocard {
+  /* width: 190px; */
+  /* height: 254px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 3px 1px #00000088;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.portfoliocard .content {
+  border-radius: 5px;
+  background: #171717;
+  /* width: 186px;
+  height: 250px; */
+  width: 99%;
+  height: 99%;
+  z-index: 1;
+  padding: 20px;
+  color: white;
+}
+
+.content::before {
+  opacity: 0;
+  transition: opacity 400ms;
+  content: " ";
+  display: block;
+  background: white;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  filter: blur(50px);
+}
+
+.portfoliocard:hover .content::before {
+  opacity: 1;
+}
+
+.portfoliocard::before {
+  opacity: 0;
+  content: " ";
+  position: absolute;
+  display: block;
+  /* width: 120px;
+  height: 360px; */
+  width: 80%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff2288,
+    #387ef0,
+    transparent
+  );
+  transition: opacity 300ms;
+  animation: rotation_9018 5000ms infinite linear;
+  animation-play-state: paused;
+}
+
+.portfoliocard:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+.portfoliocard::after {
+  position: absolute;
+  content: " ";
+  display: block;
+  /* width: 190px;
+  height: 254px; */
+  width: 83%;
+  height: 150%;
+  background: #17171733;
+  backdrop-filter: blur(50px);
+}
+
+@keyframes rotation_9018 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* portfolio link btn */ 
+.portfolio-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-button span {
+  padding-bottom: 7px;
+  font-size: 14px;
+  padding-right: 15px;
+}
+
+.portfolio-button svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+  color: white;
+  fill: white;
+}
+
+.portfolio-button:hover svg {
+  transform: translateX(0);
+}
+
+.portfolio-button:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: rgb(255, 255, 255);
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.portfolio-button:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.selfprojectparent {
+  width: 100%;
+  padding: 20px;
+  perspective: 1000px;
+}
+
+.selfpjcard {
+  padding-top: 50px;
+  /* border-radius: 10px; */
+  border: 3px solid #141414;
+  transform-style: preserve-3d;
+  background: linear-gradient(135deg, #0000 18.75%, #f3f3f3 0 31.25%, #0000 0),
+    repeating-linear-gradient(45deg, #f3f3f3 -6.25% 6.25%, #141414 0 18.75%);
+  background-size: 60px 60px;
+  background-position:
+    0 0,
+    0 0;
+  background-color: #141414;
+  width: 100%;
+  box-shadow: rgba(142, 142, 142, 0.3) 0px 30px 30px -10px;
+  transition: all 0.5s ease-in-out;
+}
+
+.selfpjcard:hover {
+  background-position:
+    -100px 100px,
+    -100px 100px;
+  transform: rotate3d(0.5, 1, 0, 30deg);
+}
+
+.selfpjcontent-box {
+  height: 270px;
+  background: #f97316;
+  /* border-radius: 10px 100px 10px 10px; */
+  transition: all 0.5s ease-in-out;
+  padding: 60px 25px 25px 25px;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  position: relative;
+}
+
+.selfpjcontent-box .selfpjcard-title {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 900;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 50px);
+}
+
+.selfpjcontent-box .selfpjcard-title:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+
+.selfpjcontent-box .selfpjcard-content {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 30px);
+}
+
+.selfpjcontent-box .selfpjcard-content:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+
+.selfpjcontent-box .selfpjsee-more {
+  cursor: pointer;
+  margin-top: 1rem;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 9px;
+  text-transform: uppercase;
+  color: #f97316;
+  /* border-radius: 5px; */
+  background: #ffffff;
+  padding: 0.5rem 0.7rem;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 20px);
+}
+
+.selfpjcontent-box .selfpjsee-more:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+
+.selfpjdate-box {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  height: 60px;
+  width: auto;
+  background: #ffffff;
+  /* border-radius: 10px; */
+  padding: 10px 20px;
+  transform: translate3d(0px, 0px, 80px);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 17px 10px -10px;
+}
+
+.selfpjdate-box span {
+  display: block;
+  text-align: center;
+}
+
+.selfpjdate-box .selfpjmonth {
+  color: #f97316;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.selfpjdate-box .selfpjdate {
+  font-size: 20px;
+  font-weight: 900;
+  color: #f97316;
+}
+
+.contact-info {
+  color: white;
+}
+
+/* From Uiverse.io by omriluz */ 
+.form-container {
+  width: 400px;
+  background: linear-gradient(#212121, #212121) padding-box,
+              linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+  border: 2px solid transparent;
+  padding: 32px 24px;
+  font-size: 14px;
+  font-family: inherit;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-size: 200% 100%;
+  animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.form-container button:active {
+  scale: 0.95;
+}
+
+.form-container .form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-container .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.form-container .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #717171;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.form-container .form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #fff;
+  font-family: inherit;
+  background-color: transparent;
+  border: 1px solid #414141;
+}
+
+.form-container .form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  resize: none;
+  color: #fff;
+  height: 96px;
+  border: 1px solid #414141;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+.form-container .form-group input::placeholder {
+  opacity: 0.5;
+}
+
+.form-container .form-group input:focus {
+  outline: none;
+  border-color: #e81cff;
+}
+
+.form-container .form-group textarea:focus {
+  outline: none;
+  border-color: #e81cff;
+}
+
+.form-container .form-submit-btn {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: flex-start;
+  font-family: inherit;
+  color: #717171;
+  font-weight: 600;
+  width: 40%;
+  background: #313131;
+  border: 1px solid #414141;
+  padding: 12px 16px;
+  font-size: inherit;
+  gap: 8px;
+  margin-top: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.form-container .form-submit-btn:hover {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+
+
+
+
+
+
+
+

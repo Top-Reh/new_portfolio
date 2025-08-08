@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import './App.css';
 import portimg from'./assets/portimg.png';
 import image1 from './assets/bioimages/image1.jpg';
 import aboutimage from './assets/aboutnobg.png';
 import { html ,css, javascript, react, tailwind, firebase, nodejs, mongodb, figma, wordpress, express,github } from './assets/skillsimages/skillsimagesexport';
-import './App.css';
+import {website1 , website2, website3, website4, website5} from './assets/portfolioimages/portfolioimages';
+import {themark, webdevmm} from './assets/selfprojects/selfprojects';
+
 
 const Home = () => {
     const [socialanimation, setSocialAnimation] = useState(0);
@@ -17,7 +20,7 @@ const Home = () => {
         }, 4000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [socialanimation]);
 
     useEffect(() => {
         if (slideIndex === 1) {
@@ -157,9 +160,12 @@ const Home = () => {
                 }
                 </div>
             </div>
-            <div className='grid grid-cols-2 w-2/3 justify-center items-center'>
-                <div>
-                    <img src={skills[0]} className='h-80 w-96 object-cover object-center rounded-sm'></img>
+            <div className='grid grid-cols-2 w-2/3 justify-center items-center gap-7'>
+                <div className='flex items-end justify-end w-full h-full bg-white' style={{ backgroundImage: `url(${skills[0]})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                    <div className='w-full h-1/4 bg-black bg-opacity-50 flex items-start justify-center flex-col p-3'>
+                        <h1 className='text-white font-semibold'>React js</h1>
+                        <p className='text-white text-sm font-light'>I learn React js since I born</p>
+                    </div>
                 </div>
                 <div className='flex items-center justify-between gap-5 flex-col text-white '>
                     <div className='flex items-start justify-start gap-3 flex-col'>
@@ -182,6 +188,145 @@ const Home = () => {
                 </div>
             </div>
         </div>
+
+        <div className='biggestproject w-full h-screen  flex items-center justify-center flex-col gap-5'>
+            <h1 className='font-semibold text-white text-4xl'>Self <span className='text-orange-500'>PROJECTS</span></h1>
+            <p className='text-white text-center w-2/3'>I have worked on various projects, including personal websites, eCommerce platforms, and web applications. Here are some of my notable projects:</p>
+            <div className='flex w-2/3 justify-center items-center gap-5 '>
+                <div className="selfprojectparent">
+                    <div className="selfpjcard">
+                        <div className="selfpjcontent-box" style={{ backgroundImage: `url(${webdevmm})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                            <span className="selfpjcard-title">Webdevmm</span>
+                            <p className="selfpjcard-content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            </p>
+                            <span className="selfpjsee-more">See More</span>
+                        </div>
+                        <div className="selfpjdate-box">
+                            <span className="selfpjmonth">AGENCY</span>
+                            <span className="selfpjdate">webdevmm</span>
+                        </div>
+                    </div>
+                </div>
+                <div className="selfprojectparent">
+                    <div className="selfpjcard">
+                        <div className="selfpjcontent-box" style={{ backgroundImage: `url(${themark})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                        <span className="selfpjcard-title">The Mark</span>
+                        <p className="selfpjcard-content">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </p>
+                        <span className="selfpjsee-more">See More</span>
+                        </div>
+                        <div className="selfpjdate-box border-orange-500">
+                        <span className="selfpjmonth">ECOMMERCE</span>
+                        <span className="selfpjdate">The-Mark</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div className='portfolio w-full h-screen bg-black flex items-center justify-center flex-col gap-4 p-5'>
+            <h1 className='font-semibold text-white text-4xl mb-2'>Recent <span className='text-orange-500'>WORKS</span></h1>
+            <div className='flex w-full items-center justify-end gap-5 '>
+                <button class="portfolio-button ">
+                    <span class="hover-underline-animation"> See more </span>
+                    <svg
+                        id="arrow-horizontal"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30"
+                        height="10"
+                        viewBox="0 0 46 16"
+                    >
+                        <path
+                        id="Path_10"
+                        data-name="Path 10"
+                        d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+                        transform="translate(30)"
+                        ></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div className='grid grid-cols-2 justify-center items-center gap-4 w-full h-full'>
+                
+                <div className='portfoliocard w-full h-full rounded-sm' id='card'>
+                    <div className='content flex items-start justify-end rounded-sm relative p-6' style={{ backgroundImage: `url(${website1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                        <span className='bg-black opacity-30 h-full w-full z-0 absolute top-0 left-0 cursor-pointer hover:opacity-0'></span>
+                        <p className='text-white px-5 bg-gray-600 py-2 rounded-full'>Full stack development</p>
+                    </div>
+                </div>
+                <div className='portfoliocard w-full h-full' id='card'>
+                    <div className='content flex items-start justify-end rounded-sm relative p-6' style={{ backgroundImage: `url(${website2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                        <span className='bg-black opacity-30 h-full w-full z-0 absolute top-0 left-0 cursor-pointer hover:opacity-0'></span>
+                        <p className='text-white px-5 bg-gray-600 py-2 rounded-full'>Full stack development</p>
+                    </div>
+                </div>
+            </div>
+            <div className='grid grid-cols-3 justify-center items-center gap-4 w-full h-2/3'>
+                <div className='portfoliocard w-full h-full' id='card'>
+                    <div className='content flex items-start justify-end rounded-sm relative p-6' style={{ backgroundImage: `url(${website3})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                        <span className='bg-black opacity-30 h-full w-full z-0 absolute top-0 left-0 cursor-pointer hover:opacity-0'></span>
+                        <p className='text-white px-5 bg-gray-600 py-2 rounded-full'>Full stack development</p>
+                    </div>
+                </div>
+                <div className='portfoliocard w-full h-full' id='card'>
+                    <div className='content flex items-start justify-end rounded-sm relative p-6' style={{ backgroundImage: `url(${website4})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                        <span className='bg-black opacity-30 h-full w-full z-0 absolute top-0 left-0 cursor-pointer hover:opacity-0'></span>
+                        <p className='text-white px-5 bg-gray-600 py-2 rounded-full'>Full stack development</p>
+                    </div>
+                </div>
+                <div className='portfoliocard w-full h-full' id='card'>
+                    <div className='content flex items-start justify-end rounded-sm relative p-6' style={{ backgroundImage: `url(${website5})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                        <span className='bg-black opacity-30 h-full w-full z-0 absolute top-0 left-0 cursor-pointer hover:opacity-0'></span>
+                        <p className='text-white px-5 bg-gray-600 py-2 rounded-full'>Full stack development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div className='contact w-full h-screen flex items-center justify-center gap-36'>
+            <div className='contact-info flex items-center justify-center gap-6 flex-col'>
+                <h1 className='font-extrabold text-3xl'>Contact</h1>
+                <p className='text-center'>Have a project or idea?<br></br>I’d love to hear about it and help you bring it to life!</p>
+                <div className='flex items-center justify-center gap-2 flex-col'>
+                    <h2 className='font-bold'>Email</h2>
+                    <p>topreh86@gmail.com</p>
+                </div>
+                <div className='flex items-center justify-center gap-2 flex-col'>
+                    <h2 className='font-bold'>Phone</h2>
+                    <p>09686890493</p>
+                </div>
+                <div className='flex items-center justify-end gap-1 bg-white rounded-full py-1 px-2 border-none relative'>
+                        <span className={`bg-black w-8 h-5/6 absolute top-0 rounded-b-sm transition-all ${socialanimation === 1 ? 'left-11' : socialanimation === 2 ? 'left-20': socialanimation === 3 ? 'left-30': 'left-2'}`}></span>
+                        <i className={`bi bi-facebook  text-2xl px-1 rounded-sm rounded-t-none z-10 cursor-pointer ${socialanimation === 0 ? ' text-white transition-all -translate-y-1' : 'text-black'}`} onClick={() => setSocialAnimation(0)}></i>
+                        <i className={`bi bi-linkedin  text-2xl px-1 rounded-sm rounded-t-none z-10 cursor-pointer ${socialanimation === 1 ? ' text-white transition-all -translate-y-1' : 'text-black'}`} onClick={() => setSocialAnimation(1)}></i>
+                        <i className={`bi bi-telegram  text-2xl px-1 rounded-sm rounded-t-none z-10 cursor-pointer ${socialanimation === 2 ? ' text-white transition-all -translate-y-1' : 'text-black'}`} onClick={() => setSocialAnimation(2)}></i>
+                        <i className={`bi bi-github  text-2xl px-1  rounded-sm rounded-t-none z-10 cursor-pointer ${socialanimation === 3 ? ' text-white transition-all -translate-y-1' : 'text-black'}`} onClick={() => setSocialAnimation(3)}></i>
+                    </div>
+            </div>
+            <div class="form-container">
+                <form class="form">
+                    <div class="form-group">
+                        <label for="email">Name</label>
+                        <input required="" name="email" id="email" type="text"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input required="" name="email" id="email" type="text"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="textarea">How Can We Help You?</label>
+                        <textarea required="" cols="50" rows="10" id="textarea" name="textarea">          </textarea>
+                    </div>
+                    <button type="submit" class="form-submit-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <footer className='w-full h-20 bg-gray-900 flex items-center justify-center'>
+            <p className='text-white'>© 2023 Top Reh. All rights reserved.</p>
+        </footer>
     </div>
   )
 }

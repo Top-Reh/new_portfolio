@@ -4,9 +4,11 @@ import './index.css';
 import './App.css'
 import App from './App.jsx'
 import Home from './Home.jsx';
+import Menu from './menu.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Menu/>
     <Home />
   </StrictMode>,
 )
