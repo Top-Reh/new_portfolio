@@ -8,7 +8,6 @@ import Menu from './menu.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Menu/>
-    <Home />
+    <App />
   </StrictMode>,
 )

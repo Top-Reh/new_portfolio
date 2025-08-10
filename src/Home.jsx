@@ -229,8 +229,8 @@ const Home = () => {
         <div className='portfolio w-full h-screen bg-black flex items-center justify-center flex-col gap-4 p-5'>
             <h1 className='font-semibold text-white text-4xl mb-2'>Recent <span className='text-orange-500'>WORKS</span></h1>
             <div className='flex w-full items-center justify-end gap-5 '>
-                <button class="portfolio-button ">
-                    <span class="hover-underline-animation"> See more </span>
+                <button className="portfolio-button ">
+                    <span className="hover-underline-animation"> See more </span>
                     <svg
                         id="arrow-horizontal"
                         xmlns="http://www.w3.org/2000/svg"
@@ -305,21 +305,21 @@ const Home = () => {
                         <i className={`bi bi-github  text-2xl px-1  rounded-sm rounded-t-none z-10 cursor-pointer ${socialanimation === 3 ? ' text-white transition-all -translate-y-1' : 'text-black'}`} onClick={() => setSocialAnimation(3)}></i>
                     </div>
             </div>
-            <div class="form-container">
-                <form class="form">
-                    <div class="form-group">
+            <div className="form-container">
+                <form className="form">
+                    <div className="form-group">
                         <label for="email">Name</label>
                         <input required="" name="email" id="email" type="text"/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="email">Email</label>
                         <input required="" name="email" id="email" type="text"/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label for="textarea">How Can We Help You?</label>
                         <textarea required="" cols="50" rows="10" id="textarea" name="textarea">          </textarea>
                     </div>
-                    <button type="submit" class="form-submit-btn">Submit</button>
+                    <button type="submit" className="form-submit-btn">Submit</button>
                 </form>
             </div>
         </div>
