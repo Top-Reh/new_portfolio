@@ -41,9 +41,9 @@ const Menu = () => {
           <div className='w-full flex items-center justify-around z-50' style={{height: openmenu ? '50vh' : '0px',transition: 'height 0.5s ease-in-out'}}>
             <ul style={{display: openmenu ? 'flex' : 'none',transition:'1s'}} className='flex flex-col items-start justify-center gap-4 text-xl font-bold text-black w-1/3 relative'>
               <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out   w-full text-center ${gotoLink === 'Home' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => setGotoLink('Home')}><Link to="/">Home</Link></li>
-              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'About' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => setGotoLink('About')}>About</li>
+              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'About' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => setGotoLink('About')}><Link to="/about">About</Link></li>
               <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'Portfolio' ? 'text-2xl text-orange-500 py-4' : 'text-xl text-black py-0'}`} onClick={() => setGotoLink('Portfolio')}><Link to="/portfolio">Portfolio</Link></li>
-              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'Contact' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => setGotoLink('Contact')}>Contact</li>
+              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'Contact' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => setGotoLink('Contact')}><Link to="contact">Contact</Link></li>
               <span className={`border-b-2 border-t-2 border-orange-500 absolute h-14 w-full transition-all ease-out z-0 ${gotoLink === 'Home' ? 'top-0' : gotoLink ==='About' ? 'top-12' : gotoLink ==='Portfolio' ? 'top-24' : 'bottom-0'}`}></span>
             </ul>
              <div className="svg-frame" style={{display: openmenu ? 'flex' : 'none',transition:'1s'}}>
