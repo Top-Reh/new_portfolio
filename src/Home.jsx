@@ -305,28 +305,47 @@ const Home = () => {
                         <i className={`bi bi-github  text-2xl px-1  rounded-sm rounded-t-none z-10 cursor-pointer ${socialanimation === 3 ? ' text-white transition-all -translate-y-1' : 'text-black'}`} onClick={() => setSocialAnimation(3)}></i>
                     </div>
             </div>
-            <div className="form-container">
-                <form className="form">
-                    <div className="form-group">
-                        <label>Name</label>
-                        <input required="" name="name" id="email" type="text"/>
-                    </div>
-                    <div className="form-group">
-                        <label>Email</label>
-                        <input required="" name="email" id="email" type="text"/>
-                    </div>
-                    <div className="form-group">
-                        <label >How Can We Help You?</label>
-                        <textarea required="" cols="50" rows="10" id="textarea" name="textarea"></textarea>
-                    </div>
-                    <button type="submit" className="form-submit-btn">Submit</button>
-                </form>
-            </div>
+            <div className="form-container flex items-center justify-center">
+            <form className="contact-form">
+                <div className="contact-form-control">
+                    <input type="contact-text" required />
+                    <label>
+                        {['N', 'a', 'm', 'e'].map((letter, index) => (
+                        <span key={index} style={{ transitionDelay: `${index * 50}ms` }}>
+                            {letter}
+                        </span>
+                        ))}
+                    </label>
+                </div>
+                <div className="contact-form-control">
+                    <input type="contact-text" required />
+                    <label>
+                        {['E', 'm', 'a', 'i', 'l'].map((letter, index) => (
+                        <span key={index} style={{ transitionDelay: `${index * 50}ms` }}>
+                            {letter}
+                        </span>
+                        ))}
+                    </label>
+                </div>
+                <div className="contact-form-control">
+                    <textarea rows="4" required></textarea>
+                    <label>
+                        {['M', 'e', 's', 's', 'a', 'g', 'e'].map((letter, index) => (
+                        <span key={index} style={{ transitionDelay: `${index * 50}ms` }}>
+                            {letter}
+                        </span>
+                        ))}
+                    </label>
+                </div>
+                <button type="submit" className="form-submit-btn contact-fancy">
+                    <span className="contact-top-key"></span>
+                    <span className="contact-text">Let's work together</span>
+                    <span className="contact-bottom-key-1"></span>
+                    <span className="contact-bottom-key-2"></span>
+                </button>
+            </form>
         </div>
-
-        <footer className='w-full h-20 bg-gray-900 flex items-center justify-center'>
-            <p className='text-white'>© 2023 Top Reh. All rights reserved.</p>
-        </footer>
+        </div>
     </div>
   )
 }

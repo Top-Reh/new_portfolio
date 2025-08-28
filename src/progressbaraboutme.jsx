@@ -1,14 +1,20 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useInView } from 'react-intersection-observer';
+import kbb from './assets/aboutmeimages/kbb.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollProgress() {
-  const lineRef = useRef(null);
+  const dotsRef = useRef([]);
+  const lineRef = useRef([]);
   const itemsRef = useRef([]);
-  const {ref,inView} = useInView();
+  const [items] = useState([
+    { title: "Blog 1", desc: "This is the first blog description.",image:  kbb},
+    { title: "Blog 2", desc: "This is the second blog description.",image:  kbb},
+    { title: "Blog 3", desc: "This is the third blog description.",image:  kbb},
+    { title: "Blog 4", desc: "This is the fourth blog description.",image:  kbb},
+  ])
   
       // {
       //   scrollTrigger: {
@@ -27,61 +33,150 @@ export default function ScrollProgress() {
       //   }
       // }
 
-  const items = [
-    { title: "Blog 1", desc: "This is the first blog description." },
-    { title: "Blog 2", desc: "This is the second blog description." },
-    { title: "Blog 3", desc: "This is the third blog description." },
-    { title: "Blog 4", desc: "This is the fourth blog description." },
-  ];
+      // gsap.to(item, {
+      //   y: 20,
+      //   opacity: 1,
+      //   scrollTrigger: {
+      //     trigger: item,
+      //     start: "top center",
+      //     end: "bottom bottom",
+      //     scrub: true,
+      //   }
+      // })
+      // // gsap.to(lineRef.current, {
+      // //   height: `${(i + 1) * 20}%`,
+      // //   duration: 1,
+      // //   ease: "none",
+      // //   scrollTrigger: {
+      // //     trigger: item,
+      // //     start: "top center",
+      // //     end: "bottom bottom",
+      // //     scrub: true,
+      // //   }
+      // // })
+      // gsap.to('.linee', {
+      //   height: "100%",
+      //   duration: 1,
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: item,
+      //     start: "top center",
+      //     end: "bottom bottom",
+      //     scrub: true,
+      //   }
+      // })
 
-  useEffect(() => {
+      
     // gsap.to('.linee', {
     //   height: "50%",
     //   duration: 3,
     //   scrollTrigger: ".linee",
     // }
     // )
-    itemsRef.current.forEach((item, i) => {
-      gsap.to(lineRef.current, {
-        height: `${(i + 1) * 20}%`,
-        scrollTrigger: {
-          trigger: item,
-          start: "top center",
-          end: "bottom center",
-          scrub: true,
+
+  useEffect(() => {
+    itemsRef.current.forEach((item,i) => {
+      gsap.fromTo(
+        lineRef.current[i],
+        { height: "0%" },
+        {
+          height: "100%",
+          duration: 2,
+          ease: "none",
+          scrollTrigger: {
+            trigger: item,
+            start: "top bottom",
+            end: "bottom bottom",
+            scrub: true,
+          }
         }
-      })
-    })
+      )
+      gsap.fromTo(
+        dotsRef.current[i],
+        { opacity: 0, scale: 0 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 3,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: item,
+            start: "top bottom",
+            end: "bottom bottom",
+            scrub: true,
+          }
+        }
+      )
+      gsap.fromTo(
+        itemsRef.current[i],
+        { opacity: 0, scale: 0 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.5,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: item,
+            start: "top bottom",
+            end: "bottom center",
+            scrub: true,
+          }
+        }
+      )
+    });
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    }
   }, []);
 
   return (
-    <div className="lineeconcon relative w-[90%] max-w-5xl mx-auto py-20" ref={ref}>
-      {inView ? 'Element is in view!' : 'Element is out of view.'}
-      {/* Vertical line */}
-      <div
-        ref={lineRef}
-        className="linee absolute left-1/2 top-0 w-[4px] bg-blue-500 h-10"
-      ></div>
-
-      {/* Timeline items */}
-      {items.map((item, i) => (
+    <div className='w-full flex items-center justify-center flex-col overflow-hidden py-28'>
+      <h1 className='font-bold text-4xl mb-14'>Skills</h1>
+      <div className="lineeconcon relative w-[90%] max-w-5xl mx-auto " >
+        {/* Vertical line */}
+        {
+          /** 
         <div
-          key={i}
-          ref={el => itemsRef.current[i] = el}
-          className={`relative w-full mb-20 flex ${
-            i % 2 === 0 ? "justify-start" : "justify-end"
-          } box${i}`}
+          ref={lineRef}
+          className="absolute left-1/2 top-0 h-full flex flex-col items-center gap-1"
         >
-          <div
-            className={`bg-white p-6 rounded-xl shadow-lg w-[45%] ${
-              i % 2 === 0 ? "text-left" : "text-right"
-            }`}
-          >
-            <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-            <p className="text-gray-600">{item.desc}</p>
-          </div>
+          <div className='liness h-96 flex items-center justify-center flex-col' key={i}>
+              <span className='linee w-[4px] bg-green-500 mb-0 p-0 transition-all ease-in'></span>
+              <span className='w-5 h-5 bg-green-500 rounded-full'></span>
+            </div>
         </div>
-      ))}
+        */
+        }
+
+        {/* Timeline items */}
+        {items.map((item, i) => (
+          <div
+            key={i}
+            ref={el => itemsRef.current[i] = el}
+            className={`relative w-full flex ${
+              i % 2 === 0 ? "justify-start" : "justify-end"
+            } box${i}  gap-5 h-96`}
+          >
+            <div
+              className={`w-[45%] flex flex-col gap-4 `}
+            >
+              <h3 className="text-xl font-bold">{item.title}</h3>
+              <p className="text-gray-600 pb-5 border-b-2 border-black mb-2">{item.desc}</p>
+              <img src={item.image}></img>
+            </div>
+          </div>
+        ))}
+        <div className="absolute left-1/2 top-0 h-full flex flex-col items-center gap-1">
+          {
+            items.map((_,i) => (
+            <div  className='liness h-96 flex items-center justify-start flex-col' key={i}>
+              <span ref={el => lineRef.current[i] = el} className='linee top-0 w-[4px] bg-orange-500 mb-0 p-0 transition-all duration-500 ease-in h-full'></span>
+              <span ref={el => dotsRef.current[i] = el} className='w-5 h-5 bg-orange-500 rounded-full'></span>
+            </div>
+          )
+          )}
+        </div>
+      </div>
     </div>
   );
 }

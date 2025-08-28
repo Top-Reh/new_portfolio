@@ -473,8 +473,8 @@ body::-webkit-scrollbar {
 
 /* contact form */ 
 .form-container {
-  width: 400px;
-  background: linear-gradient(#212121, #212121) padding-box,
+  width: 500px;
+  background: linear-gradient(#f68f46, #f68f46) padding-box,
               linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
   border: 2px solid transparent;
   padding: 32px 24px;
@@ -483,6 +483,8 @@ body::-webkit-scrollbar {
   color: white;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
   box-sizing: border-box;
   border-radius: 16px;
@@ -504,7 +506,7 @@ body::-webkit-scrollbar {
   }
 }
 
-.form-container button:active {
+/* .form-container button:active {
   scale: 0.95;
 }
 
@@ -523,7 +525,7 @@ body::-webkit-scrollbar {
 .form-container .form-group label {
   display: block;
   margin-bottom: 5px;
-  color: #717171;
+  color: #ffffff;
   font-weight: 600;
   font-size: 12px;
 }
@@ -535,7 +537,7 @@ body::-webkit-scrollbar {
   color: #fff;
   font-family: inherit;
   background-color: transparent;
-  border: 1px solid #414141;
+  border: 1px solid #cecece;
 }
 
 .form-container .form-group textarea {
@@ -545,7 +547,7 @@ body::-webkit-scrollbar {
   resize: none;
   color: #fff;
   height: 96px;
-  border: 1px solid #414141;
+  border: 1px solid #d7d5d5;
   background-color: transparent;
   font-family: inherit;
 }
@@ -573,8 +575,8 @@ body::-webkit-scrollbar {
   color: #717171;
   font-weight: 600;
   width: 40%;
-  background: #313131;
-  border: 1px solid #414141;
+  background: #ffffff;
+  border: 1px solid #ffffff;
   padding: 12px 16px;
   font-size: inherit;
   gap: 8px;
@@ -586,6 +588,55 @@ body::-webkit-scrollbar {
 .form-container .form-submit-btn:hover {
   background-color: #fff;
   border-color: #fff;
+} */
+
+/* From Uiverse.io by liyaxu123 */ 
+.contact-form-control {
+  position: relative;
+  margin: 10px 0 40px;
+  width: 400px;
+}
+
+.contact-form-control input,.contact-form-control textarea {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.contact-form-control input:focus,
+.contact-form-control input:valid,
+.contact-form-control textarea:focus,
+.contact-form-control textarea:valid {
+  outline: 0;
+  border-bottom-color: lightblue;
+}
+
+.contact-form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+
+.contact-form-control label span {
+  display: inline-block;
+  font-size: 14px;
+  min-width: 5px;
+  color: #fff;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.contact-form-control input:focus+label span,
+.contact-form-control input:valid+label span,
+.contact-form-control textarea:focus+label span,
+.contact-form-control textarea:valid+label span {
+  color: lightblue;
+  transform: translateY(-30px);
 }
 
 /* svg loader in menu */ 
@@ -921,4 +972,233 @@ grid-row-gap: 0px;
 
 .timeline-item.right {
   left: 55%;
+}
+
+.liness:nth-child(1) {
+  height: 256px;
+}
+
+/* contact btn */ 
+.contact-fancy {
+ background-color: transparent;
+ border: 2px solid #ffffff;
+ border-radius: 0;
+ box-sizing: border-box;
+ color: #fff;
+ cursor: pointer;
+ display: inline-block;
+ float: left;
+ font-weight: 700;
+ letter-spacing: 0.05em;
+ margin: 0;
+ outline: none;
+ overflow: visible;
+ padding: 1.25em 2em;
+ position: relative;
+ text-align: center;
+ text-decoration: none;
+ text-transform: none;
+ transition: all 0.3s ease-in-out;
+ user-select: none;
+ font-size: 13px;
+}
+
+.contact-fancy::before {
+ content: " ";
+ width: 1.5625rem;
+ height: 2px;
+ background: #ffffff;
+ top: 50%;
+ left: 1.5em;
+ position: absolute;
+ transform: translateY(-50%);
+ transform-origin: center;
+ transition: background 0.3s linear, width 0.3s linear;
+}
+
+.contact-fancy .contact-text {
+ font-size: 1.125em;
+ line-height: 1.33333em;
+ padding-left: 2em;
+ display: block;
+ text-align: left;
+ transition: all 0.3s ease-in-out;
+ text-decoration: none;
+ color: #ffffff;
+}
+
+.contact-fancy .contact-top-key {
+ height: 2px;
+ width: 1.5625rem;
+ top: -2px;
+ left: 0.625rem;
+ position: absolute;
+ background: #f68f46;
+ transition: width 0.5s ease-out, left 0.3s ease-out;
+}
+
+.contact-fancy .contact-bottom-key-1 {
+ height: 2px;
+ width: 1.5625rem;
+ right: 1.875rem;
+ bottom: -2px;
+ position: absolute;
+ background: #f68f46;
+ transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.contact-fancy .contact-bottom-key-2 {
+ height: 2px;
+ width: 0.625rem;
+ right: 0.625rem;
+ bottom: -2px;
+ position: absolute;
+ background: #f68f46;
+ transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.contact-fancy:hover {
+ color: #f68f46;
+ background: #fffdfc;
+}
+
+.contact-fancy:hover::before {
+ width: 0.9375rem;
+ background: #f68f46;
+}
+
+.contact-fancy:hover .contact-text {
+ color: #f68f46;
+ padding-left: 1.5em;
+}
+
+.contact-fancy:hover .contact-top-key {
+ left: -2px;
+ width: 0px;
+}
+
+.contact-fancy:hover .contact-bottom-key-1,
+ .contact-fancy:hover .contact-bottom-key-2 {
+ right: 0;
+ width: 0;
+}
+
+.admin {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  width: 100%;
+  height: 90vh;
+}
+
+.admin-line {
+  height: 3px;
+  border-radius: 13px;
+}
+
+/* admin inputs */ 
+/* Input container */
+.admin-input-container {
+  position: relative;
+}
+
+/* Input field */
+.admin-input-field {
+  display: block;
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  background-color: transparent;
+}
+
+/* Input label */
+.admin-input-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 16px;
+  color: rgba(204, 204, 204, 0);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Input highlight */
+.admin-input-highlight {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #007bff;
+  transition: all 0.3s ease;
+}
+
+/* Input field:focus styles */
+.admin-input-field:focus + .admin-input-label {
+  top: -20px;
+  font-size: 12px;
+  color: #007bff;
+}
+
+.admin-input-field:focus + .admin-input-label + .admin-input-highlight {
+  width: 70%;
+}
+
+/* admin form btn */ 
+.admin-form-btn {
+  border: none;
+  display: block;
+  position: relative;
+  padding: 0.7em 2.4em;
+  font-size: 18px;
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  color: royalblue;
+  z-index: 1;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 15px;
+}
+
+.admin-form-btn span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1;
+  border: 2px solid royalblue;
+  border-radius: 15px;
+}
+
+.admin-form-btn span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 8%;
+  height: 500%;
+  background: var(--lightgray);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-60deg);
+  transition: all 0.3s;
+}
+
+.admin-form-btn:hover span::before {
+  transform: translate(-50%, -50%) rotate(-90deg);
+  width: 100%;
+  background: rgb(140, 169, 255);
+}
+
+.admin-form-btn:hover {
+  color: white;
+}
+
+.admin-form-btn:active span::before {
+  background: #2751cd;
 }
