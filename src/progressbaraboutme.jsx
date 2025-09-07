@@ -10,10 +10,11 @@ export default function ScrollProgress() {
   const lineRef = useRef([]);
   const itemsRef = useRef([]);
   const [items] = useState([
-    { title: "Blog 1", desc: "This is the first blog description.",image:  kbb},
-    { title: "Blog 2", desc: "This is the second blog description.",image:  kbb},
-    { title: "Blog 3", desc: "This is the third blog description.",image:  kbb},
-    { title: "Blog 4", desc: "This is the fourth blog description.",image:  kbb},
+    { title: "Front-End Development", desc: "Crafting modern, responsive, and interactive user interfaces using HTML, CSS, JavaScript, React.js, and Tailwind CSS to deliver seamless user experiences",image:  kbb},
+    { title: "Back-End Development", desc: "Building scalable and secure server-side applications with Node.js, Express.js, MongoDB, and Firebase, ensuring smooth data handling and robust APIs",image:  kbb},
+    { title: "Design & Prototyping", desc: "Designing clean and user-friendly interfaces with Figma, transforming ideas into practical UI/UX that improve usability and aesthetics",image:  kbb},
+    { title: "WordPress Development", desc: "Creating fully functional websites and eCommerce stores with WordPress, tailored for businesses that need flexibility, speed, and easy management",image:  kbb},
+    { title: "Other Essential Skills", desc: "Proficient in GitHub for version control, Firebase for real-time features and authentication, and problem-solving techniques that ensure smooth project delivery",image:  kbb},
   ])
   
       // {
@@ -131,7 +132,7 @@ export default function ScrollProgress() {
 
   return (
     <div className='w-full flex items-center justify-center flex-col overflow-hidden py-28'>
-      <h1 className='font-bold text-4xl mb-14'>Skills</h1>
+      <h1 className='font-bold text-4xl mb-14'>What I Do</h1>
       <div className="lineeconcon relative w-[90%] max-w-5xl mx-auto " >
         {/* Vertical line */}
         {

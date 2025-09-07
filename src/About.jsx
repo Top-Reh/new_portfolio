@@ -10,7 +10,7 @@ const About = () => {
       <div className="aboutheader w-full h-screen flex items-center justify-around px-5">
         <h1 className='text-9xl font-bold'>ABOUT ME</h1>
         <div className='flex flex-col items-center justify-center text-center gap-7'>
-          <p className='w-2/3'>Neque porro quisquam est qui dolorem ipsum Neque porro quisquam est qui dolorem ipsum Neque porro quisquam est qui dolorem ipsum  </p>
+          <p className='w-2/3'>I’m a 19-year-old full-stack web developer from Myanmar, currently based in Korea. My journey into tech started with curiosity and quickly grew into a mission: to create impactful digital solutions that combine creativity, functionality, and scalability. I believe technology should not only solve problems but also inspire growth, and that’s what I strive to bring to every project I work on</p>
           <img src={kbb} alt='kbbimage' className='w-3/5'></img>
         </div>
       </div>

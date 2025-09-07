@@ -10,7 +10,20 @@ import {themark, webdevmm} from './assets/selfprojects/selfprojects';
 
 const Home = () => {
     const [socialanimation, setSocialAnimation] = useState(0);
-    const [skills, setSkills] = useState([html, css, javascript, tailwind, react, firebase, nodejs, express, mongodb, figma, wordpress,github]);
+    const [skills, setSkills] = useState([
+        { name: "react js",imagesrc: react, description: '– Develop fast, scalable, and user-friendly front-end interfaces' },
+        { name: "nodejs",imagesrc: nodejs, description: '– Build powerful, server-side applications with scalability' },
+        { name: "express",imagesrc: express, description: '– Develop secure and efficient APIs' },
+        { name: "javascript",imagesrc: javascript, description: '– Add interactivity and dynamic features to applications' },
+        { name: "tailwind",imagesrc: tailwind, description: '– Create modern, responsive designs with efficiency' },
+        { name: "firebase",imagesrc: firebase, description: '– Handle authentication, real-time databases, and hosting' },
+        { name: "mongodb",imagesrc: mongodb, description: '– Design and manage flexible, document-based databases' },
+        { name: "figma",imagesrc: figma, description: '– Design user-friendly interfaces and collaborate on UI/UX' },
+        { name: "wordpress",imagesrc: wordpress, description: '– Build and customize websites with speed and flexibility' },
+        { name: "github",imagesrc: github, description: '– Manage version control and collaborate on projects effectively' },
+        { name: "html",imagesrc: html, description: '– Build structured, accessible, and SEO-friendly websites' },
+        { name: "css",imagesrc: css, description: '– Design responsive, elegant, and modern layouts' },
+    ]);
     const [slideIndex, setSlideIndex] = useState(0);
 
     useEffect(() => {
@@ -79,22 +92,22 @@ const Home = () => {
         
         <div className='bio w-full h-screen bg-white flex items-center justify-center flex-col'>
             <div className='flex items-center justify-center gap-1'>
-                <h1 className='text-2xl font-bold text-center'>Neque porro quisquam est qui dolorem ipsum </h1>
+                <h1 className='text-2xl font-bold text-center'>With a strong foundation in front-end and back-end development </h1>
                 <img src={image1} alt='image1' className='h-14 w-20 rounded-sm object-cover object-center hover:rotate-6'></img>
             </div>
             <div className='flex items-center justify-center gap-1'>
-                <h1 className='text-2xl font-bold text-center'>Neque porro quisquam</h1>
+                <h1 className='text-2xl font-bold text-center'>Not only on functionality but also </h1>
                 <img src={image1} alt='image1' className='h-14 w-20 rounded-sm object-cover object-center hover:rotate-6'></img>
-                <h1 className='text-2xl font-bold text-center'>est qui dolorem ipsum </h1>
+                <h1 className='text-2xl font-bold text-center'>on clean design and performance that scales </h1>
             </div>
             <div className='flex items-center justify-center gap-1'>
                 <img src={image1} alt='image1' className='h-14 w-20 rounded-sm object-cover object-center hover:rotate-6'></img>
-                <h1 className='text-2xl font-bold text-center'>Neque porro quisquam est qui dolorem ipsum </h1>
+                <h1 className='text-2xl font-bold text-center'>From concept and design to deployment and scaling</h1>
             </div>
             <div className='flex items-center justify-center gap-1'>
-                <h1 className='text-2xl font-bold text-center'>Neque porro quisquam</h1>
+                <h1 className='text-2xl font-bold text-center'>I create seamless web applications </h1>
                 <img src={image1} alt='image1' className='h-14 w-20 rounded-sm object-cover object-center hover:rotate-6'></img>
-                <h1 className='text-2xl font-bold text-center'>est qui dolorem ipsum </h1>
+                <h1 className='text-2xl font-bold text-center'>that bring ideas to life </h1>
             </div>
         </div>
 
@@ -114,12 +127,12 @@ const Home = () => {
     I founded **WebDevMM**, a small agency helping local businesses go digital.  
     Whether it’s a landing page, a complete eCommerce system, or a smart dashboard — I bring your product to life from idea to deployment.
 
-    I’m currently studying Korean and preparing to study in South Korea 🇰🇷, where I plan to grow as a global developer.
+    My journey started in Myanmar, where I developed strong problem-solving skills, and now continues in Korea, where I aim to expand my expertise and connect with global opportunities.
                     </p>
                 </div> 
                 <a className="fancy" href="#">
                     <span className="top-key"></span>
-                    <span className="text">Let's work together</span>
+                    <span className="text">Download My CV</span>
                     <span className="bottom-key-1"></span>
                     <span className="bottom-key-2"></span>
                 </a>
@@ -150,7 +163,7 @@ const Home = () => {
                     skills.map((skill, index) => (
                         <img
                             key={index}
-                            src={skill}
+                            src={skill.imagesrc}
                             alt={`Skill ${index}`}
                             className={`skillimage h-12 w-14 rounded-sm object-cover object-center opacity-20 transition-all duration-500
                                 ${index === 0 && slideIndex === 0 ? 'scale-125 opacity-100 z-20' : ''}
@@ -161,10 +174,10 @@ const Home = () => {
                 </div>
             </div>
             <div className='grid grid-cols-2 w-2/3 justify-center items-center gap-7'>
-                <div className='flex items-end justify-end w-full h-full bg-white' style={{ backgroundImage: `url(${skills[0]})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                <div className='flex items-end justify-end w-full h-full bg-white' style={{ backgroundImage: `url(${skills[0].imagesrc})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                     <div className='w-full h-1/4 bg-black bg-opacity-50 flex items-start justify-center flex-col p-3'>
-                        <h1 className='text-white font-semibold'>React js</h1>
-                        <p className='text-white text-sm font-light'>I learn React js since I born</p>
+                        <h1 className='text-white font-semibold capitalize'>{skills[0].name}</h1>
+                        <p className='text-white text-sm font-light'>{skills[0].description}</p>
                     </div>
                 </div>
                 <div className='flex items-center justify-between gap-5 flex-col text-white '>
@@ -190,7 +203,7 @@ const Home = () => {
         </div>
 
         <div className='biggestproject w-full h-screen  flex items-center justify-center flex-col gap-5'>
-            <h1 className='font-semibold text-white text-4xl'>Self <span className='text-orange-500'>PROJECTS</span></h1>
+            <h1 className='font-semibold text-white text-4xl'>Featured <span className='text-orange-500'>PROJECTS</span></h1>
             <p className='text-white text-center w-2/3'>I have worked on various projects, including personal websites, eCommerce platforms, and web applications. Here are some of my notable projects:</p>
             <div className='flex w-2/3 justify-center items-center gap-5 '>
                 <div className="selfprojectparent">
@@ -198,7 +211,7 @@ const Home = () => {
                         <div className="selfpjcontent-box" style={{ backgroundImage: `url(${webdevmm})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                             <span className="selfpjcard-title">Webdevmm</span>
                             <p className="selfpjcard-content">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                An agency website built to showcase professional web design and development services. It includes service offerings like custom websites, eCommerce, and Figma design, aimed at helping businesses build their online presence
                             </p>
                             <span className="selfpjsee-more">See More</span>
                         </div>
@@ -213,7 +226,7 @@ const Home = () => {
                         <div className="selfpjcontent-box" style={{ backgroundImage: `url(${themark})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         <span className="selfpjcard-title">The Mark</span>
                         <p className="selfpjcard-content">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            A full-featured eCommerce solution inspired by global platforms. It allows sellers to upload products, buyers to purchase securely, and integrates chat features with Firebase to connect users and the support team
                         </p>
                         <span className="selfpjsee-more">See More</span>
                         </div>
