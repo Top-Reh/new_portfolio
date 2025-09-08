@@ -1,10 +1,32 @@
 import { collection, getDocs, orderBy, query } from '@firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import { db } from './firebase';
+import { koreaschool, headphone, hoodieshop, photographer, travelagency, hotel } from './assets/designs/designs';
+import { useLocation } from 'react-router-dom';
 
 const Portfolio = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([{id:1, type:'Full stack projects', imageUrl:hoodieshop, title:'Hoodie Shop', description:'A comprehensive e-commerce platform for selling hoodies, featuring user authentication, product management, and a secure payment gateway.'},
+  {id:2, type:'Frontend projects', imageUrl:travelagency, title:'Travel Agency Website', description:'A visually appealing and user-friendly website for a travel agency, showcasing various travel packages, destinations, and customer testimonials.'},
+  {id:3, type:'Backend projects', imageUrl:hotel, title:'Hotel Management System', description:'A robust backend system for managing hotel operations, including room bookings, customer data, and billing processes.'},
+  {id:4, type:"Clients' websites", imageUrl:photographer, title:'Photographer Portfolio', description:'A sleek and modern portfolio website for a professional photographer to showcase their work and attract potential clients.'},
+  {id:5, type:'Design', imageUrl:koreaschool, title:'Korea School Website Design', description:'A creative and engaging website design for a language school specializing in teaching Korean, featuring course information and enrollment options.'},
+  {id:6, type:"Clients' websites", imageUrl:headphone, title:'Headphone Store Website', description:'An e-commerce website for a headphone store, offering a wide range of audio products with detailed descriptions and customer reviews.'}]);
   const [filter, setFilter] = useState('All');
+  
+//id
+//type
+//imageUrl
+//title
+//description
+    const location = useLocation();
+
+      useEffect(() => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
+      }, [location.pathname]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -12,7 +34,7 @@ const Portfolio = () => {
         const q = query(collection(db, "projects"), orderBy("createdAt", "desc"));
           const snapshot = await getDocs(q);
           const blogs = snapshot.docs.map(doc => ( doc.data()));
-          setData(blogs);
+          setData(pre => ([...pre, ...blogs]));
          console.log('data',blogs);
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -40,7 +62,7 @@ const Portfolio = () => {
         {
           data.map((item, index) => (
             item.type === filter || filter === 'All' ? (
-              <div key={index} className={`portfolio-item portfolio-grid${(index % 4) + 1}`} style={{backgroundImage: `url(${item.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+              <div key={index} className={`portfolio-item `} style={{backgroundImage: `url(${item.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
                 <p className="portfolio-item-title">{item.title}</p>
                 <p className="small-desc">
                   {item.description}
@@ -49,7 +71,7 @@ const Portfolio = () => {
                   <div className="go-arrow">→</div>
                 </div>
               </div>
-            ) : <p>No projects found!</p>
+            ) : null
           ))
         }
       </div>

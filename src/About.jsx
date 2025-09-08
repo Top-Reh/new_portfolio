@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import kbb from './assets/aboutmeimages/kbb.png';
 import aboutimage from './assets/aboutnobg.png';
 import ScrollProgress from './progressbaraboutme';
 import {website1 , website2} from './assets/portfolioimages/portfolioimages';
+import { useLocation } from 'react-router-dom';
 
 const About = () => {
+  const location = useLocation();
+
+      useEffect(() => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
+      }, [location.pathname]);
   return (
     <section className='h-full w-full bg-white relative'>
       <div className="aboutheader w-full h-screen flex items-center justify-around px-5">

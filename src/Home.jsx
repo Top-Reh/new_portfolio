@@ -6,6 +6,7 @@ import aboutimage from './assets/aboutnobg.png';
 import { html ,css, javascript, react, tailwind, firebase, nodejs, mongodb, figma, wordpress, express,github } from './assets/skillsimages/skillsimagesexport';
 import {website1 , website2, website3, website4, website5} from './assets/portfolioimages/portfolioimages';
 import {themark, webdevmm} from './assets/selfprojects/selfprojects';
+import { useLocation } from 'react-router-dom';
 
 
 const Home = () => {
@@ -25,6 +26,17 @@ const Home = () => {
         { name: "css",imagesrc: css, description: '– Design responsive, elegant, and modern layouts' },
     ]);
     const [slideIndex, setSlideIndex] = useState(0);
+
+    
+    const location = useLocation();
+
+      useEffect(() => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
+      }, [location.pathname]);
 
     useEffect(() => {
         const interval = setInterval(() => {
