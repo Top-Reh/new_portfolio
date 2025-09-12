@@ -6,11 +6,14 @@ import Contact from './Contact.jsx';
 import About from './About.jsx';
 import Portfolio from './portfolio.jsx';
 import Admin from './admin.jsx';
+import gsap, { Power3 } from 'gsap';
 
 const App = () => {
+  let tl = new gsap.timeline();
+  let ease = Power3.easeOut();
   return (
     <BrowserRouter>
-    <Menu/>
+    <Menu timeline={tl} ease= {ease}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

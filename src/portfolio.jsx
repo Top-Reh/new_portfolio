@@ -1,8 +1,9 @@
 import { collection, getDocs, orderBy, query } from '@firebase/firestore';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { db } from './firebase';
 import { koreaschool, headphone, hoodieshop, photographer, travelagency, hotel } from './assets/designs/designs';
 import { useLocation } from 'react-router-dom';
+import gsap from 'gsap';
 
 const Portfolio = () => {
   const [data, setData] = useState([{id:1, type:'Full stack projects', imageUrl:hoodieshop, title:'Hoodie Shop', description:'A comprehensive e-commerce platform for selling hoodies, featuring user authentication, product management, and a secure payment gateway.'},
@@ -12,6 +13,15 @@ const Portfolio = () => {
   {id:5, type:'Design', imageUrl:koreaschool, title:'Korea School Website Design', description:'A creative and engaging website design for a language school specializing in teaching Korean, featuring course information and enrollment options.'},
   {id:6, type:"Clients' websites", imageUrl:headphone, title:'Headphone Store Website', description:'An e-commerce website for a headphone store, offering a wide range of audio products with detailed descriptions and customer reviews.'}]);
   const [filter, setFilter] = useState('All');
+
+  
+  let topheroheaderslide = useRef(null);
+  let topherodescriptionslide = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(topheroheaderslide, { x: -100, opacity: 0 },{ x: 0, opacity: 1,duration: 1,});
+    gsap.fromTo(topherodescriptionslide, { x: 100, opacity: 0 },{ x: 0, opacity: 1,duration: 1.5,});
+  },[]);
   
 //id
 //type
@@ -46,8 +56,8 @@ const Portfolio = () => {
   return (
     <div className="portfolio w-full h-full px-5">
       <div className="portfolio-header w-full h-96 flex items-center justify-between px-6">
-        <h1 className="text-9xl font-bold text-center">My Work</h1>
-        <p className="text-lg text-gray-700 w-1/2">Here are some of the projects I’ve built that reflect my skills, creativity, and problem-solving approach. Each project represents not only technical execution but also my ability to understand real-world needs and deliver meaningful digital solutions. From agency websites to full eCommerce platforms, I aim to create products that are scalable, user-friendly, and impactful.</p>
+        <h1 className="text-9xl font-bold text-center" ref={el => (topheroheaderslide = el)}>My Work</h1>
+        <p className="text-lg text-gray-700 w-1/2" ref={el => (topherodescriptionslide = el)}>Here are some of the projects I’ve built that reflect my skills, creativity, and problem-solving approach. Each project represents not only technical execution but also my ability to understand real-world needs and deliver meaningful digital solutions. From agency websites to full eCommerce platforms, I aim to create products that are scalable, user-friendly, and impactful.</p>
       </div>
       <div className='portfolio-content px-3 border-b pb-5 flex items-center justify-start gap-4'>
           <button className={`py-3 px-6 rounded-full font-bold border-solid border border-gray-300 hover:bg-orange-500 hover:text-white ${filter==="All" ? 'bg-orange-500 text-white' : 'bg-white text-black'}`} onClick={() => setFilter('All')}>All</button>

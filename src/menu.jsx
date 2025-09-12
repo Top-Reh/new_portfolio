@@ -1,33 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import gsap from 'gsap';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const Menu = () => {
-    const [headerBg, setHeaderBg] = useState(false);
-    const [openmenu, setOpenMenu] = useState(false);
-    const [gotoLink, setGotoLink] = useState('Home');
+  const [headerBg, setHeaderBg] = useState(false);
+  const [openmenu, setOpenMenu] = useState(false);
+  const [gotoLink, setGotoLink] = useState('Home');
 
-    const changeHeaderBg = () => {
-      if (window.scrollY >= 80) {
-        setHeaderBg(true);
-      } else {
-        setHeaderBg(false);
-      }
+  let logo = useRef(null);
+  let menu = useRef(null);
+
+  const changeHeaderBg = () => {
+    if (window.scrollY >= 80) {
+      setHeaderBg(true);
+    } else {
+      setHeaderBg(false);
+    }
+  };
+
+  useEffect(() => {
+    gsap.fromTo(logo, { x: -50, opacity: 0 },{ x: 0, opacity: 1,duration: 1.5, ease: "ease" });
+    gsap.fromTo(menu, { x: 50, opacity: 0 },{ x: 0, opacity: 1,duration: 1.5, ease: "ease" });
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', changeHeaderBg);
+    return () => {
+      window.removeEventListener('scroll', changeHeaderBg);
     };
-
-    useEffect(() => {
-      window.addEventListener('scroll', changeHeaderBg);
-      return () => {
-        window.removeEventListener('scroll', changeHeaderBg);
-      };
-    }, []);
+  }, []);
 
   return (
     <div className='w-full flex items-center flex-col gap-0 transition-all ease-out  px-10 fixed top-0 z-50' style={{ backgroundColor: headerBg || openmenu ? 'white' : 'transparent' }}>
         
-        <div className='flex items-center justify-between w-full z-50 h-16'>
-          <h1 className='text-2xl font-bold'>Top's</h1>
-          <label className="hamburger">
-            <input type="checkbox" onClick={() => setOpenMenu((pre) => !pre)} />
+        <div className='flex items-center justify-between w-full z-50 h-16' >
+          <h1 className='text-2xl font-bold' ref={el => logo = el}>Top's</h1>
+          <label className="hamburger" ref={el => menu = el}>
+            <input type="checkbox" checked={openmenu} onClick={() => setOpenMenu((pre) => !pre)} />
             <svg viewBox="0 0 32 32">
               <path
                 className="line line-top-bottom"
@@ -38,12 +47,12 @@ const Menu = () => {
           </label>
 
         </div>
-          <div className='w-full flex items-center justify-around z-50' style={{height: openmenu ? '50vh' : '0px',transition: 'height 0.5s ease-in-out'}}>
+          <div className='w-full flex items-center justify-around z-50 ' style={{height: openmenu ? '50vh' : '0px',transition: 'height 0.5s ease-in-out'}}>
             <ul style={{display: openmenu ? 'flex' : 'none',transition:'1s'}} className='flex flex-col items-start justify-center gap-4 text-xl font-bold text-black w-1/3 relative'>
-              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out   w-full text-center ${gotoLink === 'Home' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => setGotoLink('Home')}><Link to="/">Home</Link></li>
-              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'About' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => setGotoLink('About')}><Link to="/about">About</Link></li>
-              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'Portfolio' ? 'text-2xl text-orange-500 py-4' : 'text-xl text-black py-0'}`} onClick={() => setGotoLink('Portfolio')}><Link to="/portfolio">Portfolio</Link></li>
-              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'Contact' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => setGotoLink('Contact')}><Link to="contact">Contact</Link></li>
+              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out   w-full text-center ${gotoLink === 'Home' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => {setGotoLink('Home'),setOpenMenu(false)}}><Link to="/">Home</Link></li>
+              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'About' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => {setGotoLink('About'),setOpenMenu(false)}}><Link to="/about">About</Link></li>
+              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'Portfolio' ? 'text-2xl text-orange-500 py-4' : 'text-xl text-black py-0'}`} onClick={() => {setGotoLink('Portfolio'),setOpenMenu(false)}}><Link to="/portfolio">Portfolio</Link></li>
+              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'Contact' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => {setGotoLink('Contact'),setOpenMenu(false)}}><Link to="/contact">Contact</Link></li>
               <span className={`border-b-2 border-t-2 border-orange-500 absolute h-14 w-full transition-all ease-out z-0 ${gotoLink === 'Home' ? 'top-0' : gotoLink ==='About' ? 'top-12' : gotoLink ==='Portfolio' ? 'top-24' : 'bottom-0'}`}></span>
             </ul>
              <div className="svg-frame" style={{display: openmenu ? 'flex' : 'none',transition:'1s'}}>
@@ -89,11 +98,6 @@ const Menu = () => {
             d="M195.136 135.689L195.474 135.904L195.689 135.566L195.351 135.352L195.136 135.689ZM171.624 128.946L171.627 129.346L171.624 128.946ZM148.232 136.099L148.011 135.765L147.678 135.986L147.899 136.32L148.232 136.099ZM148.42 136.382L148.086 136.603L148.307 136.936L148.641 136.716L148.42 136.382ZM171.627 129.286L171.63 129.686L171.627 129.286ZM194.954 135.975L194.739 136.313L195.076 136.528L195.291 136.19L194.954 135.975ZM195.136 208.311L195.351 208.648L195.689 208.433L195.474 208.096L195.136 208.311ZM171.624 215.054L171.627 214.654L171.624 215.054ZM148.232 207.901L147.899 207.68L147.678 208.014L148.011 208.234L148.232 207.901ZM148.42 207.618L148.641 207.284L148.307 207.063L148.086 207.397L148.42 207.618ZM171.627 214.714L171.63 214.314L171.627 214.714ZM194.954 208.025L195.291 207.81L195.076 207.472L194.739 207.687L194.954 208.025ZM195.351 135.352C188.265 130.836 180.022 128.473 171.62 128.546L171.627 129.346C179.874 129.274 187.966 131.594 194.921 136.026L195.351 135.352ZM171.62 128.546C163.218 128.619 155.018 131.127 148.011 135.765L148.453 136.432C155.33 131.88 163.38 129.418 171.627 129.346L171.62 128.546ZM147.899 136.32L148.086 136.603L148.753 136.161L148.566 135.878L147.899 136.32ZM148.641 136.716C155.463 132.199 163.448 129.757 171.63 129.686L171.623 128.886C163.287 128.958 155.15 131.447 148.199 136.049L148.641 136.716ZM171.63 129.686C179.812 129.614 187.839 131.916 194.739 136.313L195.169 135.638C188.138 131.158 179.959 128.813 171.623 128.886L171.63 129.686ZM195.291 136.19L195.474 135.904L194.799 135.474L194.617 135.76L195.291 136.19ZM194.921 207.974C187.966 212.406 179.874 214.726 171.627 214.654L171.62 215.454C180.022 215.527 188.265 213.163 195.351 208.648L194.921 207.974ZM171.627 214.654C163.38 214.582 155.33 212.12 148.453 207.567L148.011 208.234C155.018 212.873 163.218 215.38 171.62 215.454L171.627 214.654ZM148.566 208.122L148.753 207.838L148.086 207.397L147.899 207.68L148.566 208.122ZM148.199 207.951C155.15 212.553 163.287 215.041 171.623 215.114L171.63 214.314C163.448 214.243 155.463 211.801 148.641 207.284L148.199 207.951ZM171.623 215.114C179.959 215.187 188.138 212.842 195.169 208.362L194.739 207.687C187.839 212.084 179.812 214.386 171.63 214.314L171.623 215.114ZM194.617 208.239L194.799 208.526L195.474 208.096L195.291 207.81L194.617 208.239Z"
           ></path>
         </g>
-        <path 
-          stroke="#000000" 
-          d="M240.944 172C240.944 187.951 235.414 203.408 225.295 215.738C215.176 228.068 201.095 236.508 185.45 239.62C169.806 242.732 153.567 240.323 139.5 232.804C125.433 225.285 114.408 213.12 108.304 198.384C102.2 183.648 101.394 167.25 106.024 151.987C110.654 136.723 120.434 123.537 133.696 114.675C146.959 105.813 162.884 101.824 178.758 103.388C194.632 104.951 209.472 111.97 220.751 123.249" 
-          id="out3"
-        ></path>
       </svg>
 
       <svg style={{ "--i": 1, "--j": 3 }}>
