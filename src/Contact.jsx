@@ -1,8 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Contact = () => {
     const [socialanimation, setSocialAnimation] = useState(0);
+    const [result, setResult] = useState("");
+
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        setResult("Sending....");
+        const formData = new FormData(event.target);
+
+        formData.append("access_key", "d91f34c9-49a4-448d-a471-294326ac7fd0");
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+        setResult("Form Submitted Successfully");
+        Swal.fire({
+            title: "Success!",
+            text: "Sent the message!",
+            icon: "success"
+        });
+        event.target.reset();
+        } else {
+        console.log("Error", data);
+        setResult(data.message);
+        Swal.fire({
+            title: "Success!",
+            text: "Sent the message!",
+            icon: "error"
+        });
+        }
+    }
 
     const location = useLocation();
 
@@ -43,9 +78,9 @@ const Contact = () => {
                 </div>
         </div>
         <div className="form-container flex items-center justify-center">
-            <form className="contact-form">
+            <form className="contact-form" onSubmit={onSubmit}>
                 <div className="contact-form-control">
-                    <input type="contact-text" required />
+                    <input type="contact-text" required name='name'/>
                     <label>
                         {['N', 'a', 'm', 'e'].map((letter, index) => (
                         <span key={index} style={{ transitionDelay: `${index * 50}ms` }}>
@@ -55,7 +90,7 @@ const Contact = () => {
                     </label>
                 </div>
                 <div className="contact-form-control">
-                    <input type="contact-text" required />
+                    <input type="contact-text" required name='email'/>
                     <label>
                         {['E', 'm', 'a', 'i', 'l'].map((letter, index) => (
                         <span key={index} style={{ transitionDelay: `${index * 50}ms` }}>
@@ -65,7 +100,7 @@ const Contact = () => {
                     </label>
                 </div>
                 <div className="contact-form-control">
-                    <textarea rows="4" required></textarea>
+                    <textarea rows="4" name='message' required></textarea>
                     <label>
                         {['M', 'e', 's', 's', 'a', 'g', 'e'].map((letter, index) => (
                         <span key={index} style={{ transitionDelay: `${index * 50}ms` }}>

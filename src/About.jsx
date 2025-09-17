@@ -1,13 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import kbb from './assets/aboutmeimages/kbb.png';
 import aboutimage from './assets/aboutnobg.png';
 import ScrollProgress from './progressbaraboutme';
-import {website1 , website2} from './assets/portfolioimages/portfolioimages';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
+import { hotelhomesection, portfolioherosection} from './assets/designs/designs';
 
 const About = () => {
+  const [data, setData] = useState([
+        {id:1, type:"Clients' websites", imageUrl:portfolioherosection, title:'Photographer Portfolio', description:'A sleek and modern portfolio website for a professional photographer to showcase their work and attract potential clients.'},
+        {id:2, type:"Clients' websites", imageUrl:hotelhomesection, title:'Hotel Booking Website', description:'A comprehensive hotel booking website with room availability, pricing details, and secure payment options.'}]);
+
   const location = useLocation();
+    const [singleData, setSingleData] = useState(null);
   let topheroheaderslide = useRef(null);
   let topheroimageslide = useRef(null);
   let topherodescriptionslide = useRef(null);
@@ -16,8 +21,10 @@ const About = () => {
   let aboutimageslide = useRef(null);
   let aboutcapslide = useRef(null);
   let recentworksslide = useRef(null);
-  let recentworks1slide = useRef(null);
-  let recentworks2slide = useRef(null);
+  // let recentworks1slide = useRef(null);
+  // let recentworks2slide = useRef(null);
+  const recentworksSlides = useRef([]);
+
 
   useEffect(() => {
     gsap.fromTo(topheroheaderslide, { x: -100, opacity: 0 },{ x: 0, opacity: 1,duration: 1,});
@@ -27,15 +34,15 @@ const About = () => {
     gsap.from(project2slide, { opacity: 0,x:100});
     gsap.from(aboutimageslide, { x: -100, opacity: 0, duration: 1.5});
     gsap.from(aboutcapslide, { opacity: 0, scale:0});
-    gsap.from([recentworksslide,recentworks1slide,recentworks2slide], { opacity: 0,scale:0 });
-    gsap.to([recentworks1slide,recentworks2slide],2, {
-        scale:1,
-        opacity: 1,
-        scrollTrigger: {
-            trigger: recentworksslide, // The element to watch for scroll
-            start: "top 80%", // When the top of the box hits 80% of the viewport
-        }
-    });
+    // gsap.from([recentworksslide,recentworks1slide,recentworks2slide], { opacity: 0,scale:0 });
+    // gsap.to([recentworks1slide,recentworks2slide],2, {
+    //     scale:1,
+    //     opacity: 1,
+    //     scrollTrigger: {
+    //         trigger: recentworksslide, // The element to watch for scroll
+    //         start: "top 80%", // When the top of the box hits 80% of the viewport
+    //     }
+    // });
     gsap.to(recentworksslide,1, {
         scale:1,
         opacity: 1,
@@ -44,6 +51,15 @@ const About = () => {
             start: "top 80%", // When the top of the box hits 80% of the viewport
         }
         });
+    gsap.from([recentworksslide, ...recentworksSlides.current.filter(Boolean)], { opacity: 0, scale: 0 });
+    gsap.to(recentworksSlides.current.filter(Boolean), 2, {
+      scale: 1,
+      opacity: 1,
+      scrollTrigger: {
+        trigger: recentworksslide,
+        start: "top 80%",
+      }
+    });
     gsap.to(aboutcapslide, { opacity: 1, scale:1, scrollTrigger: {
         trigger: aboutcapslide, // The element to watch for scroll
         start: "top 80%", // When the top of the box hits 80% of the viewport
@@ -74,7 +90,7 @@ const About = () => {
       <div className="aboutheader w-full h-screen flex items-center justify-around px-5">
         <h1 className='text-9xl font-bold' ref={el => (topheroheaderslide = el)}>ABOUT ME</h1>
         <div className='flex flex-col items-center justify-center text-center gap-7'>
-          <p className='w-2/3' ref={el => (topherodescriptionslide = el)}>I’m a 19-year-old full-stack web developer from Myanmar, currently based in Korea. My journey into tech started with curiosity and quickly grew into a mission: to create impactful digital solutions that combine creativity, functionality, and scalability. I believe technology should not only solve problems but also inspire growth, and that’s what I strive to bring to every project I work on</p>
+          <p className='w-2/3' ref={el => (topherodescriptionslide = el)}>I’m a 20-year-old full-stack web developer currently based in South Korea 🇰🇷. My journey into tech started with curiosity and quickly grew into a mission: to create impactful digital solutions that combine creativity, functionality, and scalability. I believe technology should not only solve problems but also inspire growth, and that’s the mindset I bring to every project I work on.</p>
           <img src={kbb} alt='kbbimage' className='w-3/5' ref={el => (topheroimageslide = el)}></img>
         </div>
       </div>
@@ -113,14 +129,12 @@ const About = () => {
             <h1 className='font-semibold text-white text-4xl'><span className='text-orange-500'>WHO</span> AM I?</h1>
             <div className='flex items-start justify-start gap-5'>
                 <span className='h-full w-2 bg-orange-500 '></span>
-                <p className='text-white leading-8'>
-                I’m a 19-year-old developer from Myanmar 🇲🇲, passionate about building scalable web apps and beautiful user experiences.  
-I specialize in full-stack development using modern technologies like React, Tailwind, Firebase, Node.js, and MongoDB.
+                <p className='text-white leading-8 '>
+                I’m a 20-year-old developer currently based in South Korea 🇰🇷, passionate about building scalable web apps and beautiful user experiences. I specialize in full-stack development using modern technologies like React, Tailwind, Firebase, Node.js, and MongoDB.
 
-I founded **WebDevMM**, a small agency helping local businesses go digital.  
-Whether it’s a landing page, a complete eCommerce system, or a smart dashboard — I bring your product to life from idea to deployment.
+I’ve also worked on freelance projects under WebDevMM, where I helped businesses go digital. From landing pages to full eCommerce systems and dashboards, I’ve delivered complete solutions from idea to deployment.
 
-I’m currently studying Korean and preparing to study in South Korea 🇰🇷, where I plan to grow as a global developer.
+Alongside my studies in Korea, I’m focused on growing as a global developer and contributing to impactful projects.
                 </p>
             </div> 
             <a className="fancy" href="#">
@@ -136,38 +150,52 @@ I’m currently studying Korean and preparing to study in South Korea 🇰🇷, 
         <h1 className='font-semibold text-white text-4xl mb-2' ref={el =>(recentworksslide = el)}>Recent <span className='text-orange-500'>WORKS</span></h1>
         <div className='flex w-full items-center justify-end gap-5 '>
             <button className="portfolio-button ">
-                <span className="hover-underline-animation"> See more </span>
-                <svg
-                    id="arrow-horizontal"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="30"
-                    height="10"
-                    viewBox="0 0 46 16"
-                >
-                    <path
-                    id="Path_10"
-                    data-name="Path 10"
-                    d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-                    transform="translate(30)"
-                    ></path>
-                </svg>
-            </button>
+            <Link to="/portfolio"><span className="hover-underline-animation"> See more </span></Link>
+            <svg
+              id="arrow-horizontal"
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="10"
+              viewBox="0 0 46 16"
+            >
+              <path
+                id="Path_10"
+                data-name="Path 10"
+                d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+                transform="translate(30)"
+              ></path>
+            </svg>
+          </button>
         </div>
 
         <div className='grid grid-cols-2 justify-center items-center gap-4 w-full h-2/3'>
-            
-            <div className='portfoliocard w-full h-full rounded-sm' id='card' ref={el =>(recentworks1slide = el)}>
-                <div className='content flex items-start justify-end rounded-sm relative p-6' style={{ backgroundImage: `url(${website1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                    <span className='bg-black opacity-30 h-full w-full z-0 absolute top-0 left-0 cursor-pointer hover:opacity-0'></span>
-                    <p className='text-white px-5 bg-gray-600 py-2 rounded-full'>Full stack development</p>
+            {
+              data.map((item, idx) => (
+                <div key={item.id} className='portfoliocard w-full h-full' id='card' ref={el => (recentworksSlides.current[idx] = el)} onClick={() => setSingleData(item)}>
+                    <div className='content flex items-start justify-end rounded-sm relative p-6' style={{ backgroundImage: `url(${item.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                        <span className='bg-black opacity-30 h-full w-full z-0 absolute top-0 left-0 cursor-pointer hover:opacity-0'></span>
+                        <p className='text-white px-5 bg-gray-600 py-2 rounded-full'>{item.type}</p>
+                    </div>
                 </div>
-            </div>
-            <div className='portfoliocard w-full h-full' id='card' ref={el =>(recentworks2slide = el)}>
-                <div className='content flex items-start justify-end rounded-sm relative p-6' style={{ backgroundImage: `url(${website2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                    <span className='bg-black opacity-30 h-full w-full z-0 absolute top-0 left-0 cursor-pointer hover:opacity-0'></span>
-                    <p className='text-white px-5 bg-gray-600 py-2 rounded-full'>Full stack development</p>
+              ))
+            }
+            {
+              singleData && (
+                <div className='single-data fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex items-center justify-center z-50 overflow-y-scroll pt-96' onClick={() => setSingleData(null)}>
+                  <div className={`single-data-content bg-white p-5 rounded-lg  w-4/5  `} style={{marginTop: singleData.fulldesignurl ? '265%' : '0px'}} onClick={(e) => e.stopPropagation()}>
+                    <img src={singleData.imageUrl} alt={singleData.title} className='w-full h-auto mb-3 rounded'/>
+                    <h2 className='text-3xl font-bold mb-3'>{singleData.title}</h2>
+                    {
+                      singleData.link && <a href={singleData.link} target='_blank' rel='noreferrer' className='text-blue-500 underline mb-3 inline-block'>Visit Website</a>
+                    }
+                    <p className='text-gray-700'>{singleData.description}</p>
+                    {
+                      singleData.fulldesignurl && <img src={singleData.fulldesignurl} alt={singleData.title} className='w-full h-auto mt-3 rounded'/>
+                    }
+                  </div>
                 </div>
-            </div>
+              )
+            }
         </div>
     </div>
     </section>

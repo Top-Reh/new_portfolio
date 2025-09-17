@@ -1,15 +1,23 @@
-import koreaschool from './koreaschool.png';
-import headphone from './headphone.jpg';
-import hoodieshop from './hoodieshop.jpg';
-import photographer from './photographer.jpg';
-import travelagency from './travelagency.jpg';
-import hotel from './hotel.jpg';
+import agency from './agency.png';
+import headphoneherosection from './headphoneherosection.png';
+import herofirstsection from './herofirstsection.png';
+import hoodieherosection from './hoodieherosection.png';
+import hotelhomesection from './hotelhomesection.png';
+import koreaagencyhomesection from './koreaagencyhomesection.png';
+import lamboherosection from './lamboherosection.png';
+import portfolioherosection from './portfolioherosection.png';
+import travelherosection from './travelherosection.png';
+import hotel from './hotel.jpg'
 
 export {
-    koreaschool,
-    headphone,
-    hoodieshop,
-    photographer,
-    travelagency,
+    agency,
+    headphoneherosection,
+    herofirstsection,
+    hoodieherosection,
+    hotelhomesection,
+    koreaagencyhomesection,
+    lamboherosection,
+    portfolioherosection,
+    travelherosection,
     hotel
 };
