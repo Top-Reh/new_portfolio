@@ -15,15 +15,15 @@ import { useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 
 const Portfolio = () => {
-  const [data, setData] = useState([{id:1, type:'Full stack projects', imageUrl:hoodieherosection, title:'Hoodie Shop', description:'A comprehensive e-commerce platform for selling hoodies, featuring user authentication, product management, and a secure payment gateway.'},
-  {id:2, type:'Frontend projects', imageUrl:travelherosection, title:'Travel Agency Website', description:'A visually appealing and user-friendly website for a travel agency, showcasing various travel packages, destinations, and customer testimonials.'},
-  {id:3, type:"Clients' websites", imageUrl:portfolioherosection, title:'Photographer Portfolio', description:'A sleek and modern portfolio website for a professional photographer to showcase their work and attract potential clients.'},
+  const [data, setData] = useState([{id:1, type:'Design', imageUrl:hoodieherosection, title:'Hoodie Shop', description:'A comprehensive e-commerce platform for selling hoodies, featuring user authentication, product management, and a secure payment gateway.'},
+  {id:2, type:'Design', imageUrl:travelherosection, title:'Travel Agency Website', description:'A visually appealing and user-friendly website for a travel agency, showcasing various travel packages, destinations, and customer testimonials.'},
+  {id:3, type:"Design", imageUrl:portfolioherosection, title:'Photographer Portfolio', description:'A sleek and modern portfolio website for a professional photographer to showcase their work and attract potential clients.'},
   {id:4, type:'Design', imageUrl:koreaagencyhomesection, title:'Korea School Website Design', description:'A creative and engaging website design for a language school specializing in teaching Korean, featuring course information and enrollment options.'},
-  {id:5, type:"Clients' websites", imageUrl:headphoneherosection, title:'Headphone Store Website', description:'An e-commerce website for a headphone store, offering a wide range of audio products with detailed descriptions and customer reviews.'},
+  {id:5, type:"Design", imageUrl:headphoneherosection, title:'Headphone Store Website', description:'An e-commerce website for a headphone store, offering a wide range of audio products with detailed descriptions and customer reviews.'},
   {id:6, type:'Design', imageUrl:agency, title:'Creative Agency Website Design', description:'A dynamic and visually stunning website design for a creative agency, highlighting their services, portfolio, and client testimonials.'},
   {id:7, type:'Design', imageUrl:lamboherosection, title:'Luxury Car Landing Page', description:'A high-end landing page design for a luxury car brand, focusing on sleek visuals and key features of the vehicles.'},
-  {id:8, type:'Full stack projects', imageUrl:herofirstsection, title:'E-commerce Platform', description:'A full-featured e-commerce platform with user authentication, product listings, shopping cart functionality, and payment integration.'},
-  {id:9, type:"Clients' websites", imageUrl:hotelhomesection,link:'href/hereyougo', title:'Hotel Booking Website', description:'A comprehensive hotel booking website with room availability, pricing details, and secure payment options.',fulldesignurl:hotel},]);
+  {id:8, type:'Design', imageUrl:herofirstsection, title:'E-commerce Platform', description:'A full-featured e-commerce platform with user authentication, product listings, shopping cart functionality, and payment integration.'},
+  {id:9, type:"Design", imageUrl:hotelhomesection,link:'href/hereyougo', title:'Hotel Booking Website', description:'A comprehensive hotel booking website with room availability, pricing details, and secure payment options.',fulldesignurl:hotel},]);
   const [filter, setFilter] = useState('All');
   const [singleData, setSingleData] = useState(null);
 
@@ -76,9 +76,7 @@ const Portfolio = () => {
           <button className={`py-3 px-6 rounded-full font-bold border-solid border border-gray-300 hover:bg-orange-500 hover:text-white ${filter==="All" ? 'bg-orange-500 text-white' : 'bg-white text-black'}`} onClick={() => setFilter('All')}>All</button>
           <button className={`py-3 px-6 rounded-full font-bold border-solid border border-gray-300 hover:bg-orange-500 hover:text-white ${filter==="Full stack projects" ? 'bg-orange-500 text-white' : 'bg-white text-black'}`} onClick={() => setFilter('Full stack projects')}>Full stack projects</button>
           <button className={`py-3 px-6 rounded-full font-bold border-solid border border-gray-300 hover:bg-orange-500 hover:text-white ${filter==="Frontend projects" ? 'bg-orange-500 text-white' : 'bg-white text-black'}`} onClick={() => setFilter('Frontend projects')}>Frontend projects</button>
-          <button className={`py-3 px-6 rounded-full font-bold border-solid border border-gray-300 hover:bg-orange-500 hover:text-white ${filter==="Backend projects" ? 'bg-orange-500 text-white' : 'bg-white text-black'}`} onClick={() => setFilter('Backend projects')}>Backend projects</button>
           <button className={`py-3 px-6 rounded-full font-bold border-solid border border-gray-300 hover:bg-orange-500 hover:text-white ${filter==="Design" ? 'bg-orange-500 text-white' : 'bg-white text-black'}`} onClick={() => setFilter('Design')}>Design</button>
-          <button className={`py-3 px-6 rounded-full font-bold border-solid border border-gray-300 hover:bg-orange-500 hover:text-white ${filter==="Clients' websites" ? 'bg-orange-500 text-white' : 'bg-white text-black'}`} onClick={() => setFilter("Clients' websites")}>Clients' websites</button>
       </div>
       <div className='portfolio-items-container pt-5'>
         
@@ -95,21 +93,19 @@ const Portfolio = () => {
           ))
         }
         {
-          singleData && (
-            <div className='single-data fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex items-center justify-center z-50 overflow-y-scroll pt-96' onClick={() => setSingleData(null)}>
-              <div className={`single-data-content bg-white p-5 rounded-lg  w-4/5  `} style={{marginTop: singleData.fulldesignurl ? '265%' : '0px'}} onClick={(e) => e.stopPropagation()}>
-                <img src={singleData.imageUrl} alt={singleData.title} className='w-full h-auto mb-3 rounded'/>
-                <h2 className='text-3xl font-bold mb-3'>{singleData.title}</h2>
-                {
-                  singleData.link && <a href={singleData.link} target='_blank' rel='noreferrer' className='text-blue-500 underline mb-3 inline-block'>Visit Website</a>
-                }
-                <p className='text-gray-700'>{singleData.description}</p>
-                {
-                  singleData.fulldesignurl && <img src={singleData.fulldesignurl} alt={singleData.title} className='w-full h-auto mt-3 rounded'/>
-                }
-              </div>
-            </div>
-          )
+          singleData && (<div className={`single-data fixed top-0 left-0 w-full ${singleData ? 'h-full' : 'h-0'} bg-black bg-opacity-80 flex items-center justify-center z-50 overflow-y-scroll pt-96 transition-all`} onClick={() => setSingleData(null)}>
+          <div className={`single-data-content bg-white p-5 rounded-lg  w-4/5  `} style={{marginTop: singleData.fulldesignurl ? '265%' : '0px'}} onClick={(e) => e.stopPropagation()}>
+            <img src={singleData.imageUrl} alt={singleData.title} className='w-full h-auto mb-3 rounded'/>
+            <h2 className='text-3xl font-bold mb-3'>{singleData.title}</h2>
+            {
+              singleData.link && <a href={singleData.link} target='_blank' rel='noreferrer' className='text-blue-500 underline mb-3 inline-block'>Visit Website</a>
+            }
+            <p className='text-gray-700'>{singleData.description}</p>
+            {
+              singleData.fulldesignurl && <img src={singleData.fulldesignurl} alt={singleData.title} className='w-full h-auto mt-3 rounded'/>
+            }
+          </div>
+        </div>)
         }
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import kbb from './assets/aboutmeimages/kbb.png';
-import aboutimage from './assets/aboutnobg.png';
+import kbb from './assets/abouthero.jpg';
+import aboutimage from './assets/mystandingnobg.png';
 import ScrollProgress from './progressbaraboutme';
 import { Link, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
@@ -8,8 +8,8 @@ import { hotelhomesection, portfolioherosection} from './assets/designs/designs'
 
 const About = () => {
   const [data, setData] = useState([
-        {id:1, type:"Clients' websites", imageUrl:portfolioherosection, title:'Photographer Portfolio', description:'A sleek and modern portfolio website for a professional photographer to showcase their work and attract potential clients.'},
-        {id:2, type:"Clients' websites", imageUrl:hotelhomesection, title:'Hotel Booking Website', description:'A comprehensive hotel booking website with room availability, pricing details, and secure payment options.'}]);
+        {id:1, type:"Design", imageUrl:portfolioherosection, title:'Photographer Portfolio', description:'A sleek and modern portfolio website for a professional photographer to showcase their work and attract potential clients.'},
+        {id:2, type:"Design", imageUrl:hotelhomesection, title:'Hotel Booking Website', description:'A comprehensive hotel booking website with room availability, pricing details, and secure payment options.'}]);
 
   const location = useLocation();
     const [singleData, setSingleData] = useState(null);
@@ -122,7 +122,7 @@ const About = () => {
       </div>
       <div className='about w-full h-screen bg-black grid grid-cols-[1fr 2fr]'>
         <div className='w-full h-full flex items-center justify-center '>
-            <img src={aboutimage} alt='About Me' className=' object-cover object-left w-2/5 h-full' ref={(el) => (aboutimageslide = el)}/>
+            <img src={aboutimage} alt='About Me' className=' object-cover h-full  w-1/2' style={{objectPosition:'29%'}} ref={(el) => (aboutimageslide = el)}/>
             <h1 className='abouttitle bg-red-500' ref={(el) => (aboutcapslide = el)}>AB OU T ME</h1>
         </div>
         <div className='w-full h-full py-5 pr-60 px-10 flex items-start justify-center flex-col gap-7'>

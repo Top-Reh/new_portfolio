@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
-import portimg from './assets/portimg.png';
+import portimg from './assets/mysitnobg.png';
 import image1 from './assets/bioimages/image1.jpg';
-import aboutimage from './assets/aboutnobg.png';
+import aboutimage from './assets/mystandingnobg.png';
 import { html, css, javascript, react, tailwind, firebase, nodejs, mongodb, figma, wordpress, express, github } from './assets/skillsimages/skillsimagesexport';
 import { themark, webdevmm } from './assets/selfprojects/selfprojects';
 import { Link, useLocation } from 'react-router-dom';
@@ -27,10 +27,10 @@ const Home = () => {
     { name: "html", imagesrc: html, description: '– Build structured, accessible, and SEO-friendly websites' },
     { name: "css", imagesrc: css, description: '– Design responsive, elegant, and modern layouts' },
   ]);
-  const [data, setData] = useState([{id:1, type:"Clients' websites", imageUrl:portfolioherosection, title:'Photographer Portfolio', description:'A sleek and modern portfolio website for a professional photographer to showcase their work and attract potential clients.'},
-          {id:2, type:"Clients' websites", imageUrl:hotelhomesection, title:'Hotel Booking Website', description:'A comprehensive hotel booking website with room availability, pricing details, and secure payment options.'},
-    {id:3, type:'Full stack projects', imageUrl:hoodieherosection, title:'Hoodie Shop', description:'A comprehensive e-commerce platform for selling hoodies, featuring user authentication, product management, and a secure payment gateway.'},
-      {id:4, type:'Frontend projects', imageUrl:travelherosection, title:'Travel Agency Website', description:'A visually appealing and user-friendly website for a travel agency, showcasing various travel packages, destinations, and customer testimonials.'},
+  const [data, setData] = useState([{id:1, type:"Design", imageUrl:portfolioherosection, title:'Photographer Portfolio', description:'A sleek and modern portfolio website for a professional photographer to showcase their work and attract potential clients.'},
+          {id:2, type:"Design", imageUrl:hotelhomesection, title:'Hotel Booking Website', description:'A comprehensive hotel booking website with room availability, pricing details, and secure payment options.'},
+    {id:3, type:'Design', imageUrl:hoodieherosection, title:'Hoodie Shop', description:'A comprehensive e-commerce platform for selling hoodies, featuring user authentication, product management, and a secure payment gateway.'},
+      {id:4, type:'Design', imageUrl:travelherosection, title:'Travel Agency Website', description:'A visually appealing and user-friendly website for a travel agency, showcasing various travel packages, destinations, and customer testimonials.'},
     { id: 5, type: 'Design', imageUrl: koreaagencyhomesection, title: 'Korea School Website Design', description: 'A creative and engaging website design for a language school specializing in teaching Korean, featuring course information and enrollment options.' }
     
   ]);
@@ -303,26 +303,50 @@ const Home = () => {
             <p className='text-left p-4' ref={leftheroslide}>
               Full-Stack Web Developer | UI/UX Designer | Startup Dreamer
             </p>
-            <p className='text-right p-4' ref={rightheroslide}>
+            <p className='text-right p-4 ' ref={rightheroslide}>
               I design and build modern websites and web apps with clean code and beautiful UI
             </p>
           </div>
           <div className='w-2/3 flex items-center justify-between'>
-            <button className='resumedownload' ref={leftheroslide}>Download Resume</button>
-            <h1 className='homecreative font-bold text-center text-9xl -mb-10'>
+            <button className='resumedownload ' ref={leftheroslide}>Download Resume</button>
+            <h1 className='homecreative font-bold text-center text-9xl -mb-10 '>
               CREATIVE
             </h1>
-            <div className='flex items-center justify-end gap-1 bg-black rounded-full py-1 px-2 border-none relative' ref={socialslide}>
-              <span className={`bg-white w-8 h-5/6 absolute top-0 rounded-b-sm transition-all ${socialanimation === 1 ? 'left-11' : socialanimation === 2 ? 'left-20' : socialanimation === 3 ? 'left-30' : 'left-2'}`}></span>
-              <i className={`bi bi-facebook  text-2xl px-1 rounded-sm rounded-t-none z-10 cursor-pointer ${socialanimation === 0 ? ' text-black transition-all -translate-y-1' : 'text-white'}`} onClick={() => setSocialAnimation(0)}></i>
-              <i className={`bi bi-linkedin  text-2xl px-1 rounded-sm rounded-t-none z-10 cursor-pointer ${socialanimation === 1 ? ' text-black transition-all -translate-y-1' : 'text-white'}`} onClick={() => setSocialAnimation(1)}></i>
-              <i className={`bi bi-telegram  text-2xl px-1 rounded-sm rounded-t-none z-10 cursor-pointer ${socialanimation === 2 ? ' text-black transition-all -translate-y-1' : 'text-white'}`} onClick={() => setSocialAnimation(2)}></i>
-              <i className={`bi bi-github  text-2xl px-1  rounded-sm rounded-t-none z-10 cursor-pointer ${socialanimation === 3 ? ' text-black transition-all -translate-y-1' : 'text-white'}`} onClick={() => setSocialAnimation(3)}></i>
+            <div className='flex items-center justify-end gap-1 bg-black rounded-full py-1 px-2 border-none relative socialanimation'  ref={socialslide}>
+              <a
+  href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
+  target="_blank"
+  rel="noopener noreferrer"
+  className={`relative z-10 ${socialanimation === 0 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}
+> <i className={`bi bi-facebook  text-2xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 0 ? ' text-black transition-all -translate-y-1' : 'text-white'}`} onClick={() => setSocialAnimation(0)}></i></a>
+              <a
+  href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
+  target="_blank"
+  rel="noopener noreferrer"
+  className={`relative z-10 ${socialanimation === 1 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}
+><i className={`bi bi-linkedin  text-2xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 1 ? ' text-black transition-all -translate-y-1' : 'text-white'}`} onClick={() => setSocialAnimation(1)}></i></a>              
+              <a
+  href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
+  target="_blank"
+  rel="noopener noreferrer"
+  className={`relative z-10 ${socialanimation === 2 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}
+> <i className={`bi bi-telegram  text-2xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 2 ? ' text-black transition-all -translate-y-1' : 'text-white'}`} onClick={() => setSocialAnimation(2)}></i></a>              
+              <a
+  href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
+  target="_blank"
+  rel="noopener noreferrer"
+  className={`relative z-10 ${socialanimation === 3 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}
+> <i className={`bi bi-github  text-2xl px-1  rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 3 ? ' text-black transition-all -translate-y-1' : 'text-white'}`} onClick={() => setSocialAnimation(3)}></i></a>
+              
+              
+              
+              <span className={`bg-white w-8 h-5/6 absolute top-0 rounded-b-sm transition-all pointer-events-none ${socialanimation === 1 ? 'left-11' : socialanimation === 2 ? 'left-20' : socialanimation === 3 ? 'left-30' : 'left-2'}`} ></span>
+             
             </div>
           </div>
         </div>
-        <div className='relative w-3/5 h-3/5 flex items-center justify-center -mt-48 ' ref={bottomheroslide}>
-          <img src={portimg} alt='Portfolio' className='w-1/3 mx-auto' />
+        <div className='relative w-3/5  flex items-center justify-center  ' ref={bottomheroslide}>
+          <img src={portimg} alt='Portfolio' className='mx-auto -mt-52' style={{width:'800px'}}/>
           <h1 className='font-bold text-center text-9xl text-white absolute bottom-0'>
             DEVELOPER
           </h1>
@@ -362,7 +386,7 @@ const Home = () => {
 
       <div className='about w-full h-screen bg-black grid grid-cols-[1fr_2fr]'>
         <div className='w-full h-full flex items-center justify-center '>
-          <img src={aboutimage} alt='About Me' className=' object-cover object-left w-2/5 h-full' ref={aboutimageslide} />
+          <img src={aboutimage} alt='About Me' className=' object-cover h-full  w-1/2' style={{objectPosition:'29%'}} ref={aboutimageslide} />
           <h1 className='abouttitle bg-red-500' ref={aboutcapslide}>AB OU T ME</h1>
         </div>
         <div className='relative w-full h-full py-5 pr-60 px-10 flex items-start justify-center flex-col gap-7'>
@@ -456,7 +480,7 @@ My journey began in Myanmar 🇲🇲, where I built strong problem-solving skill
                 <p className="selfpjcard-content">
                   An agency website built to showcase professional web design and development services. It includes service offerings like custom websites, eCommerce, and Figma design, aimed at helping businesses build their online presence
                 </p>
-                <span className="selfpjsee-more">Go to website</span>
+                <a className="selfpjsee-more" href="https://webdevmm.com/">Go to website</a>
               </div>
               <div className="selfpjdate-box">
                 <span className="selfpjmonth">AGENCY</span>
@@ -471,7 +495,7 @@ My journey began in Myanmar 🇲🇲, where I built strong problem-solving skill
                 <p className="selfpjcard-content">
                   A full-featured eCommerce solution inspired by global platforms. It allows sellers to upload products, buyers to purchase securely, and integrates chat features with Firebase to connect users and the support team
                 </p>
-                <span className="selfpjsee-more">Go to website</span>
+                <a className="selfpjsee-more" href='https://top-reh.github.io/the-mark/'>Go to website</a>
               </div>
               <div className="selfpjdate-box border-orange-500">
                 <span className="selfpjmonth">ECOMMERCE</span>

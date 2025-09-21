@@ -58,7 +58,7 @@ const Contact = () => {
 }, [socialanimation]);
   return (
     <div className='contact w-full h-screen grid grid-cols-2 items-center justify-center gap-36'>
-        <div className='contact-info flex items-center justify-center gap-6 flex-col bg-orange-300 h-full w-full '>
+        <div className='contact-info flex items-center justify-center gap-6 flex-col bg-black h-full w-full '>
             <h1 className='font-extrabold text-3xl'>Contact</h1>
             <p className='text-center'>Have a project or idea?<br></br>I’d love to hear about it and help you bring it to life!</p>
             <div className='flex items-center justify-center gap-2 flex-col'>
@@ -69,13 +69,37 @@ const Contact = () => {
                 <h2 className='font-bold'>Phone</h2>
                 <p>09686890493</p>
             </div>
-            <div className='flex items-center justify-end gap-1 bg-white rounded-full py-1 px-2 border-none relative'>
-                    <span className={`bg-orange-300 w-8 h-5/6 absolute top-0 rounded-b-sm transition-all ${socialanimation === 1 ? 'left-11' : socialanimation === 2 ? 'left-20': socialanimation === 3 ? 'left-30': 'left-2'}`}></span>
-                    <i className={`bi bi-facebook  text-2xl px-1 rounded-sm rounded-t-none z-10 cursor-pointer ${socialanimation === 0 ? ' text-white transition-all -translate-y-1' : 'text-orange-300'}`} onClick={() => setSocialAnimation(0)}></i>
-                    <i className={`bi bi-linkedin  text-2xl px-1 rounded-sm rounded-t-none z-10 cursor-pointer ${socialanimation === 1 ? ' text-white transition-all -translate-y-1' : 'text-orange-300'}`} onClick={() => setSocialAnimation(1)}></i>
-                    <i className={`bi bi-telegram  text-2xl px-1 rounded-sm rounded-t-none z-10 cursor-pointer ${socialanimation === 2 ? ' text-white transition-all -translate-y-1' : 'text-orange-300'}`} onClick={() => setSocialAnimation(2)}></i>
-                    <i className={`bi bi-github  text-2xl px-1  rounded-sm rounded-t-none z-10 cursor-pointer ${socialanimation === 3 ? ' text-white transition-all -translate-y-1' : 'text-orange-300'}`} onClick={() => setSocialAnimation(3)}></i>
-                </div>
+            <div className='flex items-center justify-end gap-1 bg-white rounded-full py-1 px-2 border-none relative socialanimation'>
+              <a
+  href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
+  target="_blank"
+  rel="noopener noreferrer"
+  className={`relative z-10 ${socialanimation === 0 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}
+> <i className={`bi bi-facebook  text-2xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 0 ? ' text-white transition-all -translate-y-1' : 'text-black'}`} onClick={() => setSocialAnimation(0)}></i></a>
+              <a
+  href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
+  target="_blank"
+  rel="noopener noreferrer"
+  className={`relative z-10 ${socialanimation === 1 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}
+><i className={`bi bi-linkedin  text-2xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 1 ? ' text-white transition-all -translate-y-1' : 'text-black'}`} onClick={() => setSocialAnimation(1)}></i></a>              
+              <a
+  href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
+  target="_blank"
+  rel="noopener noreferrer"
+  className={`relative z-10 ${socialanimation === 2 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}
+> <i className={`bi bi-telegram  text-2xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 2 ? ' text-white transition-all -translate-y-1' : 'text-black'}`} onClick={() => setSocialAnimation(2)}></i></a>              
+              <a
+  href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
+  target="_blank"
+  rel="noopener noreferrer"
+  className={`relative z-10 ${socialanimation === 3 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}
+> <i className={`bi bi-github  text-2xl px-1  rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 3 ? ' text-white transition-all -translate-y-1' : 'text-black'}`} onClick={() => setSocialAnimation(3)}></i></a>
+              
+              
+              
+              <span className={`bg-black w-8 h-5/6 absolute top-0 rounded-b-sm transition-all pointer-events-none ${socialanimation === 1 ? 'left-11' : socialanimation === 2 ? 'left-20' : socialanimation === 3 ? 'left-30' : 'left-2'}`} ></span>
+             
+            </div>
         </div>
         <div className="form-container flex items-center justify-center">
             <form className="contact-form" onSubmit={onSubmit}>

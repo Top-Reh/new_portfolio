@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import kbb from './assets/aboutmeimages/kbb.png';
+import {frontend,
+    backend,
+    designdev,
+    coding,
+    wordpressdesign} from './assets/aboutskills/aboutskills';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,11 +14,11 @@ export default function ScrollProgress() {
   const lineRef = useRef([]);
   const itemsRef = useRef([]);
   const [items] = useState([
-    { title: "Front-End Development", desc: "Crafting modern, responsive, and interactive user interfaces using HTML, CSS, JavaScript, React.js, and Tailwind CSS to deliver seamless user experiences",image:  kbb},
-    { title: "Back-End Development", desc: "Building scalable and secure server-side applications with Node.js, Express.js, MongoDB, and Firebase, ensuring smooth data handling and robust APIs",image:  kbb},
-    { title: "Design & Prototyping", desc: "Designing clean and user-friendly interfaces with Figma, transforming ideas into practical UI/UX that improve usability and aesthetics",image:  kbb},
-    { title: "WordPress Development", desc: "Creating fully functional websites and eCommerce stores with WordPress, tailored for businesses that need flexibility, speed, and easy management",image:  kbb},
-    { title: "Other Essential Skills", desc: "Proficient in GitHub for version control, Firebase for real-time features and authentication, and problem-solving techniques that ensure smooth project delivery",image:  kbb},
+    { title: "Front-End Development", desc: "Crafting modern, responsive, and interactive user interfaces using HTML, CSS, JavaScript, React.js, and Tailwind CSS to deliver seamless user experiences",image:  frontend},
+    { title: "Back-End Development", desc: "Building scalable and secure server-side applications with Node.js, Express.js, MongoDB, and Firebase, ensuring smooth data handling and robust APIs",image:  backend},
+    { title: "Design & Prototyping", desc: "Designing clean and user-friendly interfaces with Figma, transforming ideas into practical UI/UX that improve usability and aesthetics",image:  designdev},
+    { title: "WordPress Development", desc: "Creating fully functional websites and eCommerce stores with WordPress, tailored for businesses that need flexibility, speed, and easy management",image:  wordpressdesign},
+    { title: "Other Essential Skills", desc: "Proficient in GitHub for version control, Firebase for real-time features and authentication, and problem-solving techniques that ensure smooth project delivery",image:  coding},
   ])
   
       // {

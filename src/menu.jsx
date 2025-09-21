@@ -34,7 +34,7 @@ const Menu = () => {
     <div className='w-full flex items-center flex-col gap-0 transition-all ease-out  px-10 fixed top-0 z-50' style={{ backgroundColor: headerBg || openmenu ? 'white' : 'transparent' }}>
         
         <div className='flex items-center justify-between w-full z-50 h-16' >
-          <h1 className='text-2xl font-bold' ref={el => logo = el}>Top's</h1>
+          <h1 className='text-2xl font-bold' ref={el => logo = el}><Link to='/'>Top's</Link></h1>
           <label className="hamburger" ref={el => menu = el}>
             <input type="checkbox" checked={openmenu} onClick={() => setOpenMenu((pre) => !pre)} />
             <svg viewBox="0 0 32 32">

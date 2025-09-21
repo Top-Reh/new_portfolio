@@ -173,10 +173,10 @@ body::-webkit-scrollbar {
 }
 
 .abouttitle {
-  background-image: url('https://i.pinimg.com/736x/13/f6/80/13f680e76d09293c4ec907ab728eadc6.jpg'); /* Your desired image */
+  background-image: url('./assets/myaboutbg.png'); /* Your desired image */
   background-size: cover; /* Ensures the image covers the text area */
   background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-position: -250px; /* Centers the image */
+  background-position: -590px; /* Centers the image */
   -webkit-background-clip: text; /* Clip the background to the text (for Webkit browsers) */
   background-clip: text; /* Clip the background to the text (for other browsers) */
   color: transparent; /* Make the text transparent to reveal the background image */
@@ -747,7 +747,7 @@ body::-webkit-scrollbar {
 
 /* portfolios */ 
 .portfolio-item-title {
-  color: #262626;
+  color: #452c2c00;
   font-size: 1.5em;
   line-height: normal;
   font-weight: 700;
@@ -758,7 +758,7 @@ body::-webkit-scrollbar {
   font-size: 1em;
   font-weight: 400;
   line-height: 1.5em;
-  color: #452c2c;
+  color: #452c2c00;
 }
 
 .small-desc {
@@ -1216,3 +1216,8 @@ height: 100vh;
 .homeportfolio3 { grid-area: 4 / 1 / 6 / 3; }
 .homeportfolio4 { grid-area: 4 / 3 / 6 / 5; }
 .homeportfolio5 { grid-area: 4 / 5 / 6 / 7; }
+
+.socialanimation {
+  z-index: 9999999999999999;
+}
+
