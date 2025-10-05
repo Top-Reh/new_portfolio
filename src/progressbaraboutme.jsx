@@ -20,64 +20,6 @@ export default function ScrollProgress() {
     { title: "WordPress Development", desc: "Creating fully functional websites and eCommerce stores with WordPress, tailored for businesses that need flexibility, speed, and easy management",image:  wordpressdesign},
     { title: "Other Essential Skills", desc: "Proficient in GitHub for version control, Firebase for real-time features and authentication, and problem-solving techniques that ensure smooth project delivery",image:  coding},
   ])
-  
-      // {
-      //   scrollTrigger: {
-      //     trigger: lineRef.current,
-      //     start: "top top",
-      //     end: "bottom bottom",
-      //     scrub: true,
-      //   },
-      //   height: "100%",
-      //   ease: "none",
-      //   duration: 1,
-      //   transformOrigin: "top center",
-      //   onUpdate: self => {
-      //     const progress = self.progress() * 100;
-      //     console.log(`Scroll progress: ${progress.toFixed(2)}%`);
-      //   }
-      // }
-
-      // gsap.to(item, {
-      //   y: 20,
-      //   opacity: 1,
-      //   scrollTrigger: {
-      //     trigger: item,
-      //     start: "top center",
-      //     end: "bottom bottom",
-      //     scrub: true,
-      //   }
-      // })
-      // // gsap.to(lineRef.current, {
-      // //   height: `${(i + 1) * 20}%`,
-      // //   duration: 1,
-      // //   ease: "none",
-      // //   scrollTrigger: {
-      // //     trigger: item,
-      // //     start: "top center",
-      // //     end: "bottom bottom",
-      // //     scrub: true,
-      // //   }
-      // // })
-      // gsap.to('.linee', {
-      //   height: "100%",
-      //   duration: 1,
-      //   ease: "none",
-      //   scrollTrigger: {
-      //     trigger: item,
-      //     start: "top center",
-      //     end: "bottom bottom",
-      //     scrub: true,
-      //   }
-      // })
-
-      
-    // gsap.to('.linee', {
-    //   height: "50%",
-    //   duration: 3,
-    //   scrollTrigger: ".linee",
-    // }
-    // )
 
   useEffect(() => {
     itemsRef.current.forEach((item,i) => {
@@ -166,7 +108,7 @@ export default function ScrollProgress() {
               className={`w-[45%] flex flex-col gap-4 `}
             >
               <h3 className="text-xl font-bold">{item.title}</h3>
-              <p className="text-gray-600 pb-5 border-b-2 border-black mb-2">{item.desc}</p>
+              <p className="scrolltext text-gray-600 pb-5 border-b-2 border-black mb-2 text-sm">{item.desc}</p>
               <img src={item.image}></img>
             </div>
           </div>

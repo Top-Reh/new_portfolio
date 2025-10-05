@@ -331,7 +331,7 @@ const Home = () => {
 
   return (
     <div className='home flex items-center flex-col w-full'>
-      <div className='herosection w-full h-screen flex items-center flex-col  bg-orange-500 sm:bg-green-500 md:bg-blue-600 lg:bg-black xl:bg-red-400'>
+      <div className='herosection w-full h-screen flex items-center flex-col  bg-black'>
         <div className='flex flex-col items-center justify-end h-96 bg-white w-full' ref={topheroslide}>
           <div className='grid grid-cols-2 sm:gap-80 lg:w-5/6 sm:w-11/12 p-7 sm:p-0 '>
             <p className='text-left lg:p-4 lg:text-base sm:p-0 sm:text-xs text-xs' ref={leftheroslide}>
@@ -343,39 +343,39 @@ const Home = () => {
           </div>
           <div className='lg:w-2/3 sm:0 flex items-center justify-between'>
             <div className='sm:absolute absolute sm:-bottom-56 -bottom-56 left-5 sm:left-5 md:relative md:bottom-0 md:right-0'><button className='resumedownload sm:text-xs' ref={leftheroslide}>Download Resume</button></div>
-            <h1 className='homecreative font-bold text-center lg:text-9xl -mb-10 sm:text-8xl mx-5 text-7xl' ref={rightheroslide}>
+            <h1 className='homecreative font-bold text-center lg:text-9xl -mb-6 sm:-mb-10 sm:text-8xl mx-5 text-7xl' ref={rightheroslide}>
               CREATIVE
             </h1>
             <div className='sm:absolute absolute sm:-bottom-56 -bottom-56 sm:right-5 right-5 md:relative md:bottom-0 md:right-0'>
-              <div className='flex items-center justify-end gap-1 md:bg-black sm:bg-white rounded-full lg:py-1 sm:py-0 px-2 border-none relative socialanimation' ref={socialslide}>
+              <div className='flex items-center justify-end gap-1 md:bg-black bg-white rounded-full lg:py-1 py-0 px-2 border-none relative socialanimation' ref={socialslide}>
                 <a
     href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
     target="_blank"
     rel="noopener noreferrer"
-    className={`relative z-10 ${socialanimation === 0 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`}
-  > <i className={`bi bi-facebook lg:text-2xl sm:text-xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 0 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`} onClick={() => setSocialAnimation(0)}></i></a>
+    className={`relative z-10 ${socialanimation === 0 ? ' md:text-black transition-all -translate-y-1 text-white' : 'md:text-white text-black'}`}
+  > <i className={`bi bi-facebook lg:text-2xl text-xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 0 ? ' md:text-black transition-all -translate-y-1 text-white' : 'md:text-white text-black'}`} onClick={() => setSocialAnimation(0)}></i></a>
                 <a
     href="https://www.linkedin.com/in/top-reh-ba98b1326"
     target="_blank"
     rel="noopener noreferrer"
-    className={`relative z-10 ${socialanimation === 1 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`}
-  ><i className={`bi bi-linkedin  lg:text-2xl sm:text-xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 1 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`} onClick={() => setSocialAnimation(1)}></i></a>              
+    className={`relative z-10 ${socialanimation === 1 ? ' md:text-black transition-all -translate-y-1 text-white' : 'md:text-white text-black'}`}
+  ><i className={`bi bi-linkedin  lg:text-2xl text-xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 1 ? ' md:text-black transition-all -translate-y-1 text-white' : 'md:text-white text-black'}`} onClick={() => setSocialAnimation(1)}></i></a>              
                 <a
     href="https://t.me/Insizz7"
     target="_blank"
     rel="noopener noreferrer"
-    className={`relative z-10 ${socialanimation === 2 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`}
-  > <i className={`bi bi-telegram  lg:text-2xl sm:text-xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 2 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`} onClick={() => setSocialAnimation(2)}></i></a>              
+    className={`relative z-10 ${socialanimation === 2 ? ' md:text-black transition-all -translate-y-1 text-white' : 'md:text-white text-black'}`}
+  > <i className={`bi bi-telegram  lg:text-2xl text-xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 2 ? ' md:text-black transition-all -translate-y-1 text-white' : 'md:text-white text-black'}`} onClick={() => setSocialAnimation(2)}></i></a>              
                 <a
     href="https://github.com/Top-Reh"
     target="_blank"
     rel="noopener noreferrer"
-    className={`relative z-10 ${socialanimation === 3 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`}
-  > <i className={`bi bi-github  lg:text-2xl sm:text-xl px-1  rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 3 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`} onClick={() => setSocialAnimation(3)}></i></a>
+    className={`relative z-10 ${socialanimation === 3 ? ' md:text-black transition-all -translate-y-1 text-white' : 'md:text-white text-black'}`}
+  > <i className={`bi bi-github  lg:text-2xl text-xl px-1  rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 3 ? ' md:text-black transition-all -translate-y-1 text-white' : 'md:text-white text-black'}`} onClick={() => setSocialAnimation(3)}></i></a>
                 
                 
                 
-                <span className={`md:bg-white sm:bg-black lg:w-8 lg:h-5/6 sm:w-7 sm:h-4/5 absolute top-0 rounded-b-sm transition-all pointer-events-none ${socialanimation === 1 ? 'sm:left-10 lg:left-11' : socialanimation === 2 ? 'sm:left-2/4 lg:left-20' : socialanimation === 3 ? 'sm:left-30' : 'left-2'}`} ></span>
+                <span className={`md:bg-white bg-black lg:w-8 lg:h-5/6 w-7 h-4/5 absolute top-0 rounded-b-sm transition-all pointer-events-none ${socialanimation === 1 ? 'left-10 lg:left-11' : socialanimation === 2 ? 'left-2/4 lg:left-20' : socialanimation === 3 ? 'left-30' : 'left-2'}`} ></span>
               
               </div>
             </div>

@@ -33,8 +33,8 @@ const Menu = () => {
   return (
     <div className='w-full flex items-center flex-col gap-0 transition-all ease-out  px-10 fixed top-0 z-50' style={{ backgroundColor: headerBg || openmenu ? 'white' : 'transparent' }}>
         
-        <div className='flex items-center justify-between w-full z-50 h-16' >
-          <h1 className='text-2xl font-bold' ref={logo}><Link to='/'>Top's</Link></h1>
+        <div className='flex items-center justify-between w-full z-50 h-16 menuheader' >
+          <h1 className='text-2xl font-bold z-50' ref={logo}><Link to='/'>Top's</Link></h1>
           <label className="hamburger" ref={menu}>
             <input
               type="checkbox"
@@ -52,7 +52,7 @@ const Menu = () => {
 
         </div>
           <div className='w-full flex items-center justify-around z-50 ' style={{height: openmenu ? '50vh' : '0px',transition: 'height 0.5s ease-in-out'}}>
-            <ul style={{display: openmenu ? 'flex' : 'none',transition:'1s'}} className='flex flex-col items-start justify-center gap-4 text-xl font-bold text-black w-1/3 relative'>
+            <ul style={{display: openmenu ? 'flex' : 'none',transition:'1s'}} className='flex flex-col items-start justify-center gap-4 text-xl font-bold text-black w-1/3 relative z-50'>
               <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out   w-full text-center ${gotoLink === 'Home' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => {setGotoLink('Home'); setOpenMenu(false);}}><Link to="/">Home</Link></li>
               <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'About' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => {setGotoLink('About'); setOpenMenu(false);}}><Link to="/about">About</Link></li>
               <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'Portfolio' ? 'text-2xl text-orange-500 py-4' : 'text-xl text-black py-0'}`} onClick={() => {setGotoLink('Portfolio'); setOpenMenu(false);}}><Link to="/portfolio">Portfolio</Link></li>

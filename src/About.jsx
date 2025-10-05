@@ -26,6 +26,34 @@ const About = () => {
   // let recentworks2slide = useRef(null);
   const recentworksSlides = useRef([]);
 
+    // Custom hook for breakpoint
+    function useBreakpoint() {
+      const [width, setWidth] = useState(window.innerWidth);
+      useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+      }, []);
+      return width;
+    }
+  
+    // In your component:
+    const width = useBreakpoint();
+  
+    // let socialdisplay;
+    // if (width < 768) { // desktop
+    //   socialdisplay = 'none';
+    // }
+  
+    let objectPosition;
+    if (width >= 1280) { // desktop
+      objectPosition = '29%';
+    } else if (width >= 1024) { // tablet
+      objectPosition = '34%';
+    } else { // pmobile
+      objectPosition = '10%';
+    }
+
 
   useEffect(() => {
     gsap.fromTo(topheroheaderslide, { x: -100, opacity: 0 },{ x: 0, opacity: 1,duration: 1,});
@@ -87,15 +115,15 @@ const About = () => {
         });
       }, [location.pathname]);
   return (
-    <section className='h-full w-full bg-white relative'>
-      <div className="aboutheader w-full h-screen flex items-center justify-around px-5">
-        <h1 className='text-9xl font-bold' ref={el => (topheroheaderslide = el)}>ABOUT ME</h1>
+    <section className='h-full w-full bg-white relative '>
+      <div className="aboutheader w-full h-screen flex items-center sm:justify-around justify-center px-5 sm:flex-row flex-col gap-10">
+        <h1 className='lg:text-9xl text-7xl font-bold' ref={el => (topheroheaderslide = el)}>ABOUT ME</h1>
         <div className='flex flex-col items-center justify-center text-center gap-7'>
-          <p className='w-2/3' ref={el => (topherodescriptionslide = el)}>I’m a 20-year-old full-stack web developer currently based in South Korea 🇰🇷. My journey into tech started with curiosity and quickly grew into a mission: to create impactful digital solutions that combine creativity, functionality, and scalability. I believe technology should not only solve problems but also inspire growth, and that’s the mindset I bring to every project I work on.</p>
-          <img src={kbb} alt='kbbimage' className='w-3/5' ref={el => (topheroimageslide = el)}></img>
+          <p className='lg:w-2/3 sm:w-full text-sm' ref={el => (topherodescriptionslide = el)}>I’m a 20-year-old full-stack web developer currently based in South Korea 🇰🇷. My journey into tech started with curiosity and quickly grew into a mission: to create impactful digital solutions that combine creativity, functionality, and scalability. I believe technology should not only solve problems but also inspire growth, and that’s the mindset I bring to every project I work on.</p>
+          <img src={kbb} alt='kbbimage' className='lg:w-3/5 sm:w-full' ref={el => (topheroimageslide = el)}></img>
         </div>
       </div>
-      <div className='w-full h-full flex items-center justify-end px-44 bg-black gap-20'>
+      <div className='w-full h-full flex items-center justify-end lg:px-44 px-5 bg-black sm:gap-20 gap-5'>
         <div className="e-card playing" ref={el => (project1slide = el)}>
           <div className="image"></div>
           
@@ -121,31 +149,31 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className='about w-full h-screen bg-black grid grid-cols-[1fr 2fr]'>
-        <div className='w-full h-full flex items-center justify-center '>
-            <img src={aboutimage} alt='About Me' className=' object-cover h-full  w-1/2' style={{objectPosition:'29%'}} ref={(el) => (aboutimageslide = el)}/>
-            <h1 className='abouttitle bg-red-500' ref={(el) => (aboutcapslide = el)}>AB OU T ME</h1>
-        </div>
-        <div className='w-full h-full py-5 pr-60 px-10 flex items-start justify-center flex-col gap-7'>
-            <h1 className='font-semibold text-white text-4xl'><span className='text-orange-500'>WHO</span> AM I?</h1>
-            <div className='flex items-start justify-start gap-5'>
-                <span className='h-full w-2 bg-orange-500 '></span>
-                <p className='text-white leading-8 '>
-                I’m a 20-year-old developer currently based in South Korea 🇰🇷, passionate about building scalable web apps and beautiful user experiences. I specialize in full-stack development using modern technologies like React, Tailwind, Firebase, Node.js, and MongoDB.
-
-I’ve also worked on freelance projects under WebDevMM, where I helped businesses go digital. From landing pages to full eCommerce systems and dashboards, I’ve delivered complete solutions from idea to deployment.
-
-Alongside my studies in Korea, I’m focused on growing as a global developer and contributing to impactful projects.
-                </p>
-            </div> 
-            <a className="fancy" href="/contact">
-                <span className="top-key"></span>
-                <span className="text">Let's work together</span>
-                <span className="bottom-key-1"></span>
-                <span className="bottom-key-2"></span>
-            </a>
-        </div>
-      </div>
+      <div className='about w-full h-screen bg-black sm:grid sm:grid-cols-[2fr_3fr]'>
+              <div className='w-full h-full hidden sm:flex items-center justify-end'>
+                <img src={aboutimage} alt='About Me' className=' object-cover h-full  w-1/2 ' style={{objectPosition}} ref={(el) => (aboutimageslide = el)}/>
+                <h1 className='abouttitle bg-red-500' ref={(el) => (aboutcapslide = el)}>AB OU T ME</h1>
+              </div>
+              <div className='relative w-full h-full xl:py-5  px-10 flex items-center sm:items-start justify-center flex-col gap-7 '>
+                <h1 className='font-semibold text-white text-4xl'><span className='text-orange-500'>WHO</span> AM I?</h1>
+                <div className='flex items-start justify-start gap-5'>
+                  <span className='h-full w-2 bg-orange-500 '></span>
+                  <p className='text-white sm:leading-8 leading-5 lg:text-lg sm:text-sm text-xs'>
+                    I’m a 19-year-old full-stack developer currently based in South Korea 🇰🇷, passionate about building scalable web apps and beautiful user experiences. I specialize in modern technologies such as React, Tailwind, Firebase, Node.js, and MongoDB.
+      
+      I founded WebDevMM, a small agency where I helped local businesses go digital. From landing pages to complete eCommerce systems and dashboards, I’ve delivered solutions that take products from idea to deployment.
+      
+      My journey began in Myanmar 🇲🇲, where I built strong problem-solving skills, and now continues in Korea, where I’m expanding my expertise and seeking global opportunities.
+                  </p>
+                </div>
+                <a className="fancy" href="#">
+                  <span className="top-key"></span>
+                  <span className="text">Download My CV</span>
+                  <span className="bottom-key-1"></span>
+                  <span className="bottom-key-2"></span>
+                </a>
+              </div>
+            </div>
       <ScrollProgress />
       <div className='portfolio w-full h-screen bg-black flex items-center justify-center flex-col gap-4 p-5'>
         <h1 className='font-semibold text-white text-4xl mb-2' ref={el =>(recentworksslide = el)}>Recent <span className='text-orange-500'>WORKS</span></h1>
@@ -169,7 +197,7 @@ Alongside my studies in Korea, I’m focused on growing as a global developer an
           </button>
         </div>
 
-        <div className='grid grid-cols-2 justify-center items-center gap-4 w-full h-2/3'>
+        <div className='sm:grid grid-cols-2 justify-center items-center gap-4 w-full h-2/3 flex flex-col'>
             {
               data.map((item, idx) => (
                 <div key={item.id} className='portfoliocard w-full h-full' id='card' ref={el => (recentworksSlides.current[idx] = el)} onClick={() => setSingleData(item)}>

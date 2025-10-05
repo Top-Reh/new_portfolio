@@ -186,58 +186,7 @@ body::-webkit-scrollbar {
   align-items: center; /* Vertically center the text */
 }
 
-@media only screen and (min-width: 640px) {
-  /* Styles for screens up to 768px wide (e.g., tablets) */
-  .abouttitle {
-    background-position: 45% 30px; /* Centers the image */
-  }
-  .resumedownload{
-    color: white;
-  }
-  .resumedownload:before {
-    background-color: white;
-  }
-  .resumedownload:hover:before {
-    background-color: white;
-  }
-  .selfpjcontent-box {
-    height: 270px;
-  }
-  
-}
 
-
-@media only screen and (min-width: 1024px) {
-  /* Styles for screens up to 768px wide (e.g., tablets) */
-  .abouttitle {
-  background-position: -610px; /* Centers the image */
-  }
-  .resumedownload{
-    color: rgb(0, 0, 0);
-  }
-  .resumedownload:before {
-    background-color: rgb(0, 0, 0);
-  }
-  .resumedownload:hover:before {
-    background-color: rgb(0, 0, 0);
-  }
-}
-
-@media only screen and (min-width: 1280px) {
-  /* Styles for screens up to 768px wide (e.g., tablets) */
-  .abouttitle {
-  background-position: -590px; /* Centers the image */
-  }
-  .resumedownload{
-    color: rgb(0, 0, 0);
-  }
-  .resumedownload:before {
-    background-color: rgb(0, 0, 0);
-  }
-  .resumedownload:hover:before {
-    background-color: rgb(0, 0, 0);
-  }
-}
 
 
 .skillimage {
@@ -689,6 +638,11 @@ body::-webkit-scrollbar {
   transform: translateY(-30px);
 }
 
+.menuheader {
+  z-index: 9999;
+  position: relative;
+}
+
 /* svg loader in menu */ 
 .svg-frame {
   position: relative;
@@ -699,9 +653,11 @@ body::-webkit-scrollbar {
   justify-content: center;
   align-items: center;
   scale: 1.5;
+  z-index: 0;
 }
 
 .svg-frame svg {
+  z-index: 1;
   position: absolute;
   transition: .5s;
   z-index: 0;
@@ -1268,4 +1224,59 @@ grid-template-rows: repeat(5, 1fr);
 
 .socialanimation {
   z-index: 9999999999999999;
+}
+
+@media only screen and (min-width: 640px) {
+  /* Styles for screens up to 768px wide (e.g., tablets) */
+  .abouttitle {
+    background-position: 45% 30px; /* Centers the image */
+  }
+  .resumedownload{
+    color: rgb(0, 0, 0);
+  }
+  .resumedownload:before {
+    background-color: rgb(0, 0, 0);
+  }
+  .resumedownload:hover:before {
+    background-color: rgb(0, 0, 0);
+  }
+  .selfpjcontent-box {
+    height: 270px;
+  }
+  .scrolltext {
+    font-size: 16px;
+  }
+}
+
+
+@media only screen and (min-width: 1024px) {
+  /* Styles for screens up to 768px wide (e.g., tablets) */
+  .abouttitle {
+  background-position: -610px; /* Centers the image */
+  }
+  .resumedownload{
+    color: rgb(0, 0, 0);
+  }
+  .resumedownload:before {
+    background-color: rgb(0, 0, 0);
+  }
+  .resumedownload:hover:before {
+    background-color: rgb(0, 0, 0);
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  /* Styles for screens up to 768px wide (e.g., tablets) */
+  .abouttitle {
+  background-position: -590px; /* Centers the image */
+  }
+  .resumedownload{
+    color: rgb(0, 0, 0);
+  }
+  .resumedownload:before {
+    background-color: rgb(0, 0, 0);
+  }
+  .resumedownload:hover:before {
+    background-color: rgb(0, 0, 0);
+  }
 }
