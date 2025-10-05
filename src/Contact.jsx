@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 
 const Contact = () => {
     const [socialanimation, setSocialAnimation] = useState(0);
-    const [result, setResult] = useState("");
+    const [result,setResult] = useState("");
 
     const onSubmit = async (event) => {
         event.preventDefault();
@@ -67,7 +67,7 @@ const Contact = () => {
             </div>
             <div className='flex items-center justify-center gap-2 flex-col'>
                 <h2 className='font-bold'>Phone</h2>
-                <p>09686890493</p>
+                <p>01021337870</p>
             </div>
             <div className='flex items-center justify-end gap-1 bg-white rounded-full py-1 px-2 border-none relative socialanimation'>
               <a
@@ -77,19 +77,19 @@ const Contact = () => {
   className={`relative z-10 ${socialanimation === 0 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}
 > <i className={`bi bi-facebook  text-2xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 0 ? ' text-white transition-all -translate-y-1' : 'text-black'}`} onClick={() => setSocialAnimation(0)}></i></a>
               <a
-  href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
+  href="https://www.linkedin.com/in/top-reh-ba98b1326"
   target="_blank"
   rel="noopener noreferrer"
   className={`relative z-10 ${socialanimation === 1 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}
 ><i className={`bi bi-linkedin  text-2xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 1 ? ' text-white transition-all -translate-y-1' : 'text-black'}`} onClick={() => setSocialAnimation(1)}></i></a>              
               <a
-  href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
+  href="https://t.me/Insizz7"
   target="_blank"
   rel="noopener noreferrer"
   className={`relative z-10 ${socialanimation === 2 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}
 > <i className={`bi bi-telegram  text-2xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 2 ? ' text-white transition-all -translate-y-1' : 'text-black'}`} onClick={() => setSocialAnimation(2)}></i></a>              
               <a
-  href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
+  href="https://github.com/Top-Reh"
   target="_blank"
   rel="noopener noreferrer"
   className={`relative z-10 ${socialanimation === 3 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}

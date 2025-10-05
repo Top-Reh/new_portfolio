@@ -1,5 +1,4 @@
 body {
-    width: 1536px;
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
@@ -11,7 +10,6 @@ body::-webkit-scrollbar {
 }
 
 .home {
-    width: 100%;
     background: #ffffff;
     background: linear-gradient(180deg, rgba(255, 255, 255, 1) 47%, rgba(0, 0, 0, 1) 47%, rgba(0, 0, 0, 1) 100%);
 }
@@ -28,19 +26,17 @@ body::-webkit-scrollbar {
 .about {
     width: 100%;
     height: 100vh;
-    display: grid;
-    grid-template-columns: 2fr 3fr;
 }
 
 
 .resumedownload {
   align-items: center;
   background-color: transparent;
-  color: #000000;
+  color: #ffffff;
   cursor: pointer;
   display: flex;
   font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 700;
   line-height: 1.5;
   text-decoration: none;
@@ -53,7 +49,7 @@ body::-webkit-scrollbar {
 }
 
 .resumedownload:before {
-  background-color: #000000;
+  background-color: #ffffff;
   content: "";
   display: inline-block;
   height: 1px;
@@ -63,7 +59,7 @@ body::-webkit-scrollbar {
 }
 
 .resumedownload:hover:before {
-  background-color: #000000;
+  background-color: #ffffff;
   width: 3rem;
 }
 
@@ -189,6 +185,60 @@ body::-webkit-scrollbar {
   display: flex;
   align-items: center; /* Vertically center the text */
 }
+
+@media only screen and (min-width: 640px) {
+  /* Styles for screens up to 768px wide (e.g., tablets) */
+  .abouttitle {
+    background-position: 45% 30px; /* Centers the image */
+  }
+  .resumedownload{
+    color: white;
+  }
+  .resumedownload:before {
+    background-color: white;
+  }
+  .resumedownload:hover:before {
+    background-color: white;
+  }
+  .selfpjcontent-box {
+    height: 270px;
+  }
+  
+}
+
+
+@media only screen and (min-width: 1024px) {
+  /* Styles for screens up to 768px wide (e.g., tablets) */
+  .abouttitle {
+  background-position: -610px; /* Centers the image */
+  }
+  .resumedownload{
+    color: rgb(0, 0, 0);
+  }
+  .resumedownload:before {
+    background-color: rgb(0, 0, 0);
+  }
+  .resumedownload:hover:before {
+    background-color: rgb(0, 0, 0);
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  /* Styles for screens up to 768px wide (e.g., tablets) */
+  .abouttitle {
+  background-position: -590px; /* Centers the image */
+  }
+  .resumedownload{
+    color: rgb(0, 0, 0);
+  }
+  .resumedownload:before {
+    background-color: rgb(0, 0, 0);
+  }
+  .resumedownload:hover:before {
+    background-color: rgb(0, 0, 0);
+  }
+}
+
 
 .skillimage {
   transition: all 0.5s cubic-bezier(.77,0,.18,1);
@@ -1205,10 +1255,8 @@ display: grid;
 
 
 .homeportfolio {
-display: grid;
 grid-template-columns: repeat(6, 1fr);
 grid-template-rows: repeat(5, 1fr);
-height: 100vh;
 }
 
 .homeportfolio1 { grid-area: 1 / 1 / 4 / 4; }
@@ -1217,7 +1265,7 @@ height: 100vh;
 .homeportfolio4 { grid-area: 4 / 3 / 6 / 5; }
 .homeportfolio5 { grid-area: 4 / 5 / 6 / 7; }
 
+
 .socialanimation {
   z-index: 9999999999999999;
 }
-

@@ -2,6 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 import portimg from './assets/mysitnobg.png';
 import image1 from './assets/bioimages/image1.jpg';
+import me1 from './assets/bioimages/me1.jpg';
+import me2 from './assets/bioimages/me2.jpg';
+import me3 from './assets/bioimages/me3.png';
+import me4 from './assets/bioimages/me4.jpg';
 import aboutimage from './assets/mystandingnobg.png';
 import { html, css, javascript, react, tailwind, firebase, nodejs, mongodb, figma, wordpress, express, github } from './assets/skillsimages/skillsimagesexport';
 import { themark, webdevmm } from './assets/selfprojects/selfprojects';
@@ -9,6 +13,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { koreaagencyhomesection,portfolioherosection, hotelhomesection, hoodieherosection, travelherosection } from './assets/designs/designs';
 import gsap from 'gsap';
 import Swal from 'sweetalert2';
+import { m } from 'framer-motion';
 
 const Home = () => {
   const [socialanimation, setSocialAnimation] = useState(0);
@@ -98,23 +103,23 @@ const Home = () => {
     {
       type: 'text-image',
       text: 'With a strong foundation in front-end and back-end development',
-      img: image1,
+      img: me1,
     },
     {
       type: 'text-image-text',
       text1: 'Not only on functionality but also',
-      img: image1,
+      img: me2,
       text2: 'on clean design and performance that scales',
     },
     {
       type: 'image-text',
-      img: image1,
+      img: me3,
       text: 'From concept and design to deployment and scaling',
     },
     {
       type: 'text-image-text',
       text1: 'I create seamless web applications',
-      img: image1,
+      img: me4,
       text2: 'that bring ideas to life',
     },
   ];
@@ -295,88 +300,119 @@ const Home = () => {
     }
   }, [slideIndex, skills]);
 
+    // Custom hook for breakpoint
+  function useBreakpoint() {
+    const [width, setWidth] = useState(window.innerWidth);
+    useEffect(() => {
+      const handleResize = () => setWidth(window.innerWidth);
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+    return width;
+  }
+
+  // In your component:
+  const width = useBreakpoint();
+
+  // let socialdisplay;
+  // if (width < 768) { // desktop
+  //   socialdisplay = 'none';
+  // }
+
+  let objectPosition;
+  if (width >= 1280) { // desktop
+    objectPosition = '29%';
+  } else if (width >= 1024) { // tablet
+    objectPosition = '34%';
+  } else { // pmobile
+    objectPosition = '10%';
+  }
+  
+
   return (
-    <div className='home flex items-center flex-col'>
-      <div className='herosection w-full h-screen flex items-center flex-col bg-black'>
+    <div className='home flex items-center flex-col w-full'>
+      <div className='herosection w-full h-screen flex items-center flex-col  bg-orange-500 sm:bg-green-500 md:bg-blue-600 lg:bg-black xl:bg-red-400'>
         <div className='flex flex-col items-center justify-end h-96 bg-white w-full' ref={topheroslide}>
-          <div className='grid grid-cols-2 w-2/3 gap-80'>
-            <p className='text-left p-4' ref={leftheroslide}>
+          <div className='grid grid-cols-2 sm:gap-80 lg:w-5/6 sm:w-11/12 p-7 sm:p-0 '>
+            <p className='text-left lg:p-4 lg:text-base sm:p-0 sm:text-xs text-xs' ref={leftheroslide}>
               Full-Stack Web Developer | UI/UX Designer | Startup Dreamer
             </p>
-            <p className='text-right p-4 ' ref={rightheroslide}>
+            <p className='text-right lg:p-4 lg:text-base sm:text-xs sm:p-0 text-xs' ref={rightheroslide}>
               I design and build modern websites and web apps with clean code and beautiful UI
             </p>
           </div>
-          <div className='w-2/3 flex items-center justify-between'>
-            <button className='resumedownload ' ref={leftheroslide}>Download Resume</button>
-            <h1 className='homecreative font-bold text-center text-9xl -mb-10 '>
+          <div className='lg:w-2/3 sm:0 flex items-center justify-between'>
+            <div className='sm:absolute absolute sm:-bottom-56 -bottom-56 left-5 sm:left-5 md:relative md:bottom-0 md:right-0'><button className='resumedownload sm:text-xs' ref={leftheroslide}>Download Resume</button></div>
+            <h1 className='homecreative font-bold text-center lg:text-9xl -mb-10 sm:text-8xl mx-5 text-7xl' ref={rightheroslide}>
               CREATIVE
             </h1>
-            <div className='flex items-center justify-end gap-1 bg-black rounded-full py-1 px-2 border-none relative socialanimation'  ref={socialslide}>
-              <a
-  href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
-  target="_blank"
-  rel="noopener noreferrer"
-  className={`relative z-10 ${socialanimation === 0 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}
-> <i className={`bi bi-facebook  text-2xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 0 ? ' text-black transition-all -translate-y-1' : 'text-white'}`} onClick={() => setSocialAnimation(0)}></i></a>
-              <a
-  href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
-  target="_blank"
-  rel="noopener noreferrer"
-  className={`relative z-10 ${socialanimation === 1 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}
-><i className={`bi bi-linkedin  text-2xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 1 ? ' text-black transition-all -translate-y-1' : 'text-white'}`} onClick={() => setSocialAnimation(1)}></i></a>              
-              <a
-  href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
-  target="_blank"
-  rel="noopener noreferrer"
-  className={`relative z-10 ${socialanimation === 2 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}
-> <i className={`bi bi-telegram  text-2xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 2 ? ' text-black transition-all -translate-y-1' : 'text-white'}`} onClick={() => setSocialAnimation(2)}></i></a>              
-              <a
-  href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
-  target="_blank"
-  rel="noopener noreferrer"
-  className={`relative z-10 ${socialanimation === 3 ? ' text-black transition-all -translate-y-1' : 'text-white'}`}
-> <i className={`bi bi-github  text-2xl px-1  rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 3 ? ' text-black transition-all -translate-y-1' : 'text-white'}`} onClick={() => setSocialAnimation(3)}></i></a>
+            <div className='sm:absolute absolute sm:-bottom-56 -bottom-56 sm:right-5 right-5 md:relative md:bottom-0 md:right-0'>
+              <div className='flex items-center justify-end gap-1 md:bg-black sm:bg-white rounded-full lg:py-1 sm:py-0 px-2 border-none relative socialanimation' ref={socialslide}>
+                <a
+    href="https://facebook.com/profile.php?id=100070858609953&mibextid=ZbWKwL"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`relative z-10 ${socialanimation === 0 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`}
+  > <i className={`bi bi-facebook lg:text-2xl sm:text-xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 0 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`} onClick={() => setSocialAnimation(0)}></i></a>
+                <a
+    href="https://www.linkedin.com/in/top-reh-ba98b1326"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`relative z-10 ${socialanimation === 1 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`}
+  ><i className={`bi bi-linkedin  lg:text-2xl sm:text-xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 1 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`} onClick={() => setSocialAnimation(1)}></i></a>              
+                <a
+    href="https://t.me/Insizz7"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`relative z-10 ${socialanimation === 2 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`}
+  > <i className={`bi bi-telegram  lg:text-2xl sm:text-xl px-1 rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 2 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`} onClick={() => setSocialAnimation(2)}></i></a>              
+                <a
+    href="https://github.com/Top-Reh"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`relative z-10 ${socialanimation === 3 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`}
+  > <i className={`bi bi-github  lg:text-2xl sm:text-xl px-1  rounded-sm rounded-t-none socialanimation cursor-pointer ${socialanimation === 3 ? ' md:text-black transition-all -translate-y-1 sm:text-white' : 'md:text-white sm:text-black'}`} onClick={() => setSocialAnimation(3)}></i></a>
+                
+                
+                
+                <span className={`md:bg-white sm:bg-black lg:w-8 lg:h-5/6 sm:w-7 sm:h-4/5 absolute top-0 rounded-b-sm transition-all pointer-events-none ${socialanimation === 1 ? 'sm:left-10 lg:left-11' : socialanimation === 2 ? 'sm:left-2/4 lg:left-20' : socialanimation === 3 ? 'sm:left-30' : 'left-2'}`} ></span>
               
-              
-              
-              <span className={`bg-white w-8 h-5/6 absolute top-0 rounded-b-sm transition-all pointer-events-none ${socialanimation === 1 ? 'left-11' : socialanimation === 2 ? 'left-20' : socialanimation === 3 ? 'left-30' : 'left-2'}`} ></span>
-             
+              </div>
             </div>
           </div>
         </div>
         <div className='relative w-3/5  flex items-center justify-center  ' ref={bottomheroslide}>
-          <img src={portimg} alt='Portfolio' className='mx-auto -mt-52' style={{width:'800px'}}/>
-          <h1 className='font-bold text-center text-9xl text-white absolute bottom-0'>
+          <img src={portimg} alt='Portfolio' className='mx-auto lg:-mt-52 md:-mt-32 sm:-mt-24 -mt-16' style={{width:'800px'}}/>
+          <h1 className='font-bold text-center md:text-9xl text-white absolute md:bottom-0 sm:text-8xl text-7xl -bottom-6 sm:-bottom-10' ref={bottomheroslide}>
             DEVELOPER
           </h1>
         </div>
       </div>
 
-      <div className='bio w-full h-screen bg-white flex items-center justify-center flex-col'>
+      <div className='bio w-full h-screen bg-white flex items-center justify-center flex-col gap-4'>
         {bioBlocks.map((block, idx) => {
           if (block.type === 'text-image') {
             return (
               <div className='flex items-center justify-center gap-1' key={idx}>
-                <h1 className='text-2xl font-bold text-center biotext' ref={el => (biotextslides.current[idx] = el)}>{block.text}</h1>
-                <img src={block.img} alt='bio' className='h-14 w-20 rounded-sm object-cover object-center hover:rotate-6' ref={el => (biotextimages.current[idx] = el)} />
+                <h1 className='lg:text-2xl md:text-xl sm:text-sm text-sm font-bold text-center biotext' ref={el => (biotextslides.current[idx] = el)}>{block.text}</h1>
+                <img src={block.img} alt='bio' className='sm:h-14 h-10 w-20 rounded-sm object-cover object-center hover:rotate-6' ref={el => (biotextimages.current[idx] = el)} />
               </div>
             );
           }
           if (block.type === 'text-image-text') {
             return (
               <div className='flex items-center justify-center gap-1' key={idx}>
-                <h1 className='text-2xl font-bold text-center' ref={el => (biotextslides.current[idx * 2] = el)}>{block.text1}</h1>
-                <img src={block.img} alt='bio' className='h-14 w-20 rounded-sm object-cover object-center hover:rotate-6' ref={el => (biotextimages.current[idx] = el)} />
-                <h1 className='text-2xl font-bold text-center' ref={el => (biotextslides.current[idx * 2 + 1] = el)}>{block.text2}</h1>
+                <h1 className='lg:text-2xl md:text-xl sm:text-sm text-sm font-bold text-center' ref={el => (biotextslides.current[idx * 2] = el)}>{block.text1}</h1>
+                <img src={block.img} alt='bio' className='sm:h-14 h-10  w-20 rounded-sm object-cover object-center hover:rotate-6' ref={el => (biotextimages.current[idx] = el)} />
+                <h1 className='lg:text-2xl md:text-xl sm:text-sm text-sm font-bold text-center' ref={el => (biotextslides.current[idx * 2 + 1] = el)}>{block.text2}</h1>
               </div>
             );
           }
           if (block.type === 'image-text') {
             return (
               <div className='flex items-center justify-center gap-1' key={idx}>
-                <img src={block.img} alt='bio' className='h-14 w-20 rounded-sm object-cover object-center hover:rotate-6' ref={el => (biotextimages.current[idx] = el)} />
-                <h1 className='text-2xl font-bold text-center' ref={el => (biotextslides.current[idx] = el)}>{block.text}</h1>
+                <img src={block.img} alt='bio' className='sm:h-14 h-10  w-20 rounded-sm object-cover object-center hover:rotate-6' ref={el => (biotextimages.current[idx] = el)} />
+                <h1 className='lg:text-2xl md:text-xl sm:text-sm text-sm font-bold text-center' ref={el => (biotextslides.current[idx] = el)}>{block.text}</h1>
               </div>
             );
           }
@@ -384,17 +420,17 @@ const Home = () => {
         })}
       </div>
 
-      <div className='about w-full h-screen bg-black grid grid-cols-[1fr_2fr]'>
-        <div className='w-full h-full flex items-center justify-center '>
-          <img src={aboutimage} alt='About Me' className=' object-cover h-full  w-1/2' style={{objectPosition:'29%'}} ref={aboutimageslide} />
+      <div className='about w-full h-screen bg-black sm:grid sm:grid-cols-[2fr_3fr]'>
+        <div className='w-full h-full hidden sm:flex items-center justify-end'>
+          <img src={aboutimage} alt='About Me' className=' object-cover h-full  w-1/2 ' style={{objectPosition}} ref={aboutimageslide} />
           <h1 className='abouttitle bg-red-500' ref={aboutcapslide}>AB OU T ME</h1>
         </div>
-        <div className='relative w-full h-full py-5 pr-60 px-10 flex items-start justify-center flex-col gap-7'>
+        <div className='relative w-full h-full xl:py-5  px-10 flex items-center sm:items-start justify-center flex-col gap-7 '>
           <div className='w-full h-full absolute bg-orange-500' ref={aboutoverlayslide}></div>
           <h1 className='font-semibold text-white text-4xl'><span className='text-orange-500'>WHO</span> AM I?</h1>
           <div className='flex items-start justify-start gap-5'>
             <span className='h-full w-2 bg-orange-500 '></span>
-            <p className='text-white leading-8'>
+            <p className='text-white sm:leading-8 leading-5 lg:text-lg sm:text-sm text-xs'>
               I’m a 19-year-old full-stack developer currently based in South Korea 🇰🇷, passionate about building scalable web apps and beautiful user experiences. I specialize in modern technologies such as React, Tailwind, Firebase, Node.js, and MongoDB.
 
 I founded WebDevMM, a small agency where I helped local businesses go digital. From landing pages to complete eCommerce systems and dashboards, I’ve delivered solutions that take products from idea to deployment.
@@ -410,12 +446,12 @@ My journey began in Myanmar 🇲🇲, where I built strong problem-solving skill
           </a>
           <div className='flex items-center justify-between gap-5'>
             <div className='flex flex-col items-center justify-between gap-2 border-orange-500 border-2 pt-3 pb-3 px-5 rounded-sm bg-orange-500'>
-              <h1 className='text-white'>20+</h1>
-              <p className='text-white'>Website Development</p>
+              <h1 className='text-white lg:text-lg sm:text-sm sm:text-center'>20+</h1>
+              <p className='text-white lg:text-lg sm:text-sm sm:text-center'>Website Development</p>
             </div>
             <div className='flex flex-col items-center justify-between gap-2 border-orange-500 border-2 pt-3 pb-3 px-5 rounded-sm'>
-              <h1 className='text-white'>30+</h1>
-              <p className='text-white'>Website Designs</p>
+              <h1 className='text-white lg:text-lg sm:text-sm sm:text-center'>30+</h1>
+              <p className='text-white lg:text-lg sm:text-sm sm:text-center'>Website Designs</p>
             </div>
           </div>
         </div>
@@ -445,34 +481,34 @@ My journey began in Myanmar 🇲🇲, where I built strong problem-solving skill
             }
           </div>
         </div>
-        <div className='grid grid-cols-2 w-2/3 justify-center items-center gap-7'>
+        <div className='grid grid-cols-2 lg:w-2/3 sm:w-4/5 justify-center items-center gap-7'>
           <div className='flex items-end justify-end w-full h-full bg-white' style={{ backgroundImage: `url(${skills[0].imagesrc})`, backgroundSize: 'cover', backgroundPosition: 'center' }} ref={skillimageslide}>
             <div className='w-full h-1/4 bg-black bg-opacity-50 flex items-start justify-center flex-col p-3'>
               <h1 className='text-white font-semibold capitalize'>{skills[0].name}</h1>
-              <p className='text-white text-sm font-light'>{skills[0].description}</p>
+              <p className='text-white sm:text-sm text-xs font-light'>{skills[0].description}</p>
             </div>
           </div>
           <div className='flex items-center justify-between gap-5 flex-col text-white ' ref={skilldescriptionslide}>
             <div className='flex items-start justify-start gap-3 flex-col'>
               <h1 className='font-semibold text-xl text-orange-500'>Front-End</h1>
-              <p className='font-light'>HTML, CSS, JavaScript, React.js, Tailwind CSS, WordPress, Elementor, Bricks Builder, Figma (UI/UX Design)</p>
+              <p className='font-light lg:text-lg sm:text-sm text-xs'>HTML, CSS, JavaScript, React.js, Tailwind CSS, WordPress, Elementor, Bricks Builder, Figma (UI/UX Design)</p>
             </div>
             <div className='flex items-start justify-start gap-3 flex-col'>
               <h1 className='font-semibold text-xl text-orange-500'>Back-End & Tools</h1>
-              <p className='font-light'>- Node.js, Express.js, MongoDB, Firebase (Firestore, Auth, Storage), Git & GitHub, REST APIs</p>
+              <p className='font-light lg:text-lg sm:text-sm text-xs'>- Node.js, Express.js, MongoDB, Firebase (Firestore, Auth, Storage), Git & GitHub, REST APIs</p>
             </div>
             <div className='flex items-start justify-start gap-3 flex-col'>
               <h1 className='font-semibold text-xl text-orange-500'>Other</h1>
-              <p className='font-light'>- Responsive Web Design, Authentication (Firebase Auth, JWT basics), Realtime Apps (Chat, Live Data), Project Management Tools (Trello, Notion)</p>
+              <p className='font-light lg:text-lg sm:text-sm text-xs'>- Responsive Web Design, Authentication (Firebase Auth, JWT basics), Realtime Apps (Chat, Live Data), Project Management Tools (Trello, Notion)</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className='biggestproject w-full h-screen  flex items-center justify-center flex-col gap-5'>
-        <h1 className='font-semibold text-white text-4xl' ref={featuredprojectsheaderslide}>Featured <span className='text-orange-500'>PROJECTS</span></h1>
-        <p className='text-white text-center w-2/3' ref={featuredprojectssubheaderslide}>I have worked on various projects, including personal websites, eCommerce platforms, and web applications. Here are some of my notable projects:</p>
-        <div className='flex w-2/3 justify-center items-center gap-5 ' ref={featuredprojectsslide}>
+      <div className='biggestproject w-full sm:h-screen  flex items-center justify-center flex-col gap-5'>
+        <h1 className='font-semibold text-white sm:text-4xl' ref={featuredprojectsheaderslide}>Featured <span className='text-orange-500'>PROJECTS</span></h1>
+        <p className='text-white text-center w-2/3 sm:text-lg text-sm' ref={featuredprojectssubheaderslide}>I have worked on various projects, including personal websites, eCommerce platforms, and web applications. Here are some of my notable projects:</p>
+        <div className='flex xl:w-2/3 w-4/5 justify-center items-center gap-5 flex-col sm:flex-row sm:w-full' ref={featuredprojectsslide}>
           <div className="selfprojectparent">
             <div className="selfpjcard">
               <div className="selfpjcontent-box" style={{ backgroundImage: `url(${webdevmm})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -507,7 +543,7 @@ My journey began in Myanmar 🇲🇲, where I built strong problem-solving skill
       </div>
 
       <div className='portfolio w-full bg-black flex items-center justify-center flex-col gap-4 p-5'>
-        <h1 className='font-semibold text-white text-4xl mb-2' ref={recentworksslide}>Recent <span className='text-orange-500'>WORKS</span></h1>
+        <h1 className='font-semibold text-white sm:text-4xl mb-2' ref={recentworksslide}>Recent <span className='text-orange-500'>WORKS</span></h1>
         <div className='flex w-full items-center justify-end gap-5 '>
           <button className="portfolio-button ">
             <Link to="/portfolio"><span className="hover-underline-animation"> See more </span></Link>
@@ -527,10 +563,10 @@ My journey began in Myanmar 🇲🇲, where I built strong problem-solving skill
             </svg>
           </button>
         </div>
-          <div className='homeportfolio gap-4 w-full'>
+          <div className='homeportfolio sm:gap-4 gap-2 w-full sm:h-screen sm:grid flex flex-wrap flex-row items-center justify-center '>
             {
                 data.map((item, idx) => (
-                    <div key={item.id} className={`portfoliocard w-full h-full rounded-sm ${'homeportfolio'+item.id}`} id='card' ref={el => (recentworksSlides.current[idx] = el)} onClick={() => setSingleData(item)}>
+                    <div key={item.id} className={`portfoliocard sm:w-full w-5/12 h-64 sm:h-full rounded-sm ${'homeportfolio'+item.id}`} id='card' ref={el => (recentworksSlides.current[idx] = el)} onClick={() => setSingleData(item)}>
                         <div className='content flex items-start justify-end rounded-sm relative p-6' style={{ backgroundImage: `url(${item.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                             <span className='bg-black opacity-30 h-full w-full z-0 absolute top-0 left-0 cursor-pointer hover:opacity-0'></span>
                             <p className='text-white px-5 bg-gray-600 py-2 rounded-full'>{item.type}</p>
@@ -540,7 +576,7 @@ My journey began in Myanmar 🇲🇲, where I built strong problem-solving skill
             }
           {
             singleData && (
-              <div className='single-data fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex items-center justify-center z-50 overflow-y-scroll pt-96' onClick={() => setSingleData(null)}>
+              <div className='single-data fixed top-0 left-0 w-full h-52 sm:h-full bg-black bg-opacity-80 flex items-center justify-center z-50 overflow-y-scroll pt-96' onClick={() => setSingleData(null)}>
                 <div className={`single-data-content bg-white p-5 rounded-lg  w-4/5  `} style={{marginTop: singleData.fulldesignurl ? '265%' : '0px'}} onClick={(e) => e.stopPropagation()}>
                   <img src={singleData.imageUrl} alt={singleData.title} className='w-full h-auto mb-3 rounded'/>
                   <h2 className='text-3xl font-bold mb-3'>{singleData.title}</h2>
@@ -558,17 +594,17 @@ My journey began in Myanmar 🇲🇲, where I built strong problem-solving skill
         </div>
       </div>
 
-      <div className='contact w-full h-screen flex items-center justify-center gap-36'>
-        <div className='contact-info flex items-center justify-center gap-6 flex-col'>
+      <div className='contact w-full md:mt-0 sm:mt-5 mb-5 md:h-screen flex flex-col items-center justify-center md:gap-36 sm:gap-5 md:flex-row sm:flex-col'>
+        <div className='contact-info flex items-center justify-center gap-6 md:flex-col sm:flex-row flex-wrap'>
           <h1 className='font-extrabold text-3xl'>Contact</h1>
-          <p className='text-center'>Have a project or idea?<br />I’d love to hear about it and help you bring it to life!</p>
+          <p className='md:text-center sm:text-start text-center'>Have a project or idea?<br />I’d love to hear about it and help you bring it to life!</p>
           <div className='flex items-center justify-center gap-2 flex-col'>
             <h2 className='font-bold'>Email</h2>
             <p>topreh86@gmail.com</p>
           </div>
           <div className='flex items-center justify-center gap-2 flex-col'>
             <h2 className='font-bold'>Phone</h2>
-            <p>09686890493</p>
+            <p>01021337870</p>
           </div>
           <div className='flex items-center justify-end gap-1 bg-white rounded-full py-1 px-2 border-none relative'>
             <span className={`bg-black w-8 h-5/6 absolute top-0 rounded-b-sm transition-all ${socialanimation === 1 ? 'left-11' : socialanimation === 2 ? 'left-20' : socialanimation === 3 ? 'left-30' : 'left-2'}`}></span>

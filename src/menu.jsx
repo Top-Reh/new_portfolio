@@ -7,8 +7,8 @@ const Menu = () => {
   const [openmenu, setOpenMenu] = useState(false);
   const [gotoLink, setGotoLink] = useState('Home');
 
-  let logo = useRef(null);
-  let menu = useRef(null);
+  const logo = useRef(null);
+  const menu = useRef(null);
 
   const changeHeaderBg = () => {
     if (window.scrollY >= 80) {
@@ -19,8 +19,8 @@ const Menu = () => {
   };
 
   useEffect(() => {
-    gsap.fromTo(logo, { x: -50, opacity: 0 },{ x: 0, opacity: 1,duration: 1.5, ease: "ease" });
-    gsap.fromTo(menu, { x: 50, opacity: 0 },{ x: 0, opacity: 1,duration: 1.5, ease: "ease" });
+    gsap.fromTo(logo.current, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 1.5, ease: "ease" });
+    gsap.fromTo(menu.current, { x: 50, opacity: 0 }, { x: 0, opacity: 1, duration: 1.5, ease: "ease" });
   }, []);
 
   useEffect(() => {
@@ -34,9 +34,13 @@ const Menu = () => {
     <div className='w-full flex items-center flex-col gap-0 transition-all ease-out  px-10 fixed top-0 z-50' style={{ backgroundColor: headerBg || openmenu ? 'white' : 'transparent' }}>
         
         <div className='flex items-center justify-between w-full z-50 h-16' >
-          <h1 className='text-2xl font-bold' ref={el => logo = el}><Link to='/'>Top's</Link></h1>
-          <label className="hamburger" ref={el => menu = el}>
-            <input type="checkbox" checked={openmenu} onClick={() => setOpenMenu((pre) => !pre)} />
+          <h1 className='text-2xl font-bold' ref={logo}><Link to='/'>Top's</Link></h1>
+          <label className="hamburger" ref={menu}>
+            <input
+              type="checkbox"
+              checked={openmenu}
+              onChange={() => setOpenMenu(pre => !pre)}
+            />
             <svg viewBox="0 0 32 32">
               <path
                 className="line line-top-bottom"
@@ -49,10 +53,10 @@ const Menu = () => {
         </div>
           <div className='w-full flex items-center justify-around z-50 ' style={{height: openmenu ? '50vh' : '0px',transition: 'height 0.5s ease-in-out'}}>
             <ul style={{display: openmenu ? 'flex' : 'none',transition:'1s'}} className='flex flex-col items-start justify-center gap-4 text-xl font-bold text-black w-1/3 relative'>
-              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out   w-full text-center ${gotoLink === 'Home' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => {setGotoLink('Home'),setOpenMenu(false)}}><Link to="/">Home</Link></li>
-              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'About' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => {setGotoLink('About'),setOpenMenu(false)}}><Link to="/about">About</Link></li>
-              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'Portfolio' ? 'text-2xl text-orange-500 py-4' : 'text-xl text-black py-0'}`} onClick={() => {setGotoLink('Portfolio'),setOpenMenu(false)}}><Link to="/portfolio">Portfolio</Link></li>
-              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'Contact' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => {setGotoLink('Contact'),setOpenMenu(false)}}><Link to="/contact">Contact</Link></li>
+              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out   w-full text-center ${gotoLink === 'Home' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => {setGotoLink('Home'); setOpenMenu(false);}}><Link to="/">Home</Link></li>
+              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'About' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => {setGotoLink('About'); setOpenMenu(false);}}><Link to="/about">About</Link></li>
+              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'Portfolio' ? 'text-2xl text-orange-500 py-4' : 'text-xl text-black py-0'}`} onClick={() => {setGotoLink('Portfolio'); setOpenMenu(false);}}><Link to="/portfolio">Portfolio</Link></li>
+              <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'Contact' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} onClick={() => {setGotoLink('Contact'); setOpenMenu(false);}}><Link to="/contact">Contact</Link></li>
               <span className={`border-b-2 border-t-2 border-orange-500 absolute h-14 w-full transition-all ease-out z-0 ${gotoLink === 'Home' ? 'top-0' : gotoLink ==='About' ? 'top-12' : gotoLink ==='Portfolio' ? 'top-24' : 'bottom-0'}`}></span>
             </ul>
              <div className="svg-frame" style={{display: openmenu ? 'flex' : 'none',transition:'1s'}}>

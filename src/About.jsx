@@ -4,12 +4,13 @@ import aboutimage from './assets/mystandingnobg.png';
 import ScrollProgress from './progressbaraboutme';
 import { Link, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
-import { hotelhomesection, portfolioherosection} from './assets/designs/designs';
+import { themarkhero,
+    webdevmmhero,} from './assets/designs/designs';
 
 const About = () => {
   const [data, setData] = useState([
-        {id:1, type:"Design", imageUrl:portfolioherosection, title:'Photographer Portfolio', description:'A sleek and modern portfolio website for a professional photographer to showcase their work and attract potential clients.'},
-        {id:2, type:"Design", imageUrl:hotelhomesection, title:'Hotel Booking Website', description:'A comprehensive hotel booking website with room availability, pricing details, and secure payment options.'}]);
+        {id:12, type:'Full stack projects', imageUrl:themarkhero, link:'https://top-reh.github.io/the-mark/', title:'The Mark - E-commerce Website', description:'A full-featured e-commerce platform with user authentication, product listings, shopping cart functionality, and payment integration.'},
+          {id:13, type:'Full stack projects', imageUrl:webdevmmhero, link:'https://webdevmm.com/', title:'WebDevMM - Freelance Marketplace', description:'A freelance marketplace connecting clients with skilled web developers for various projects, featuring user profiles, project listings, and secure payment options.'},]);
 
   const location = useLocation();
     const [singleData, setSingleData] = useState(null);
@@ -137,7 +138,7 @@ I’ve also worked on freelance projects under WebDevMM, where I helped business
 Alongside my studies in Korea, I’m focused on growing as a global developer and contributing to impactful projects.
                 </p>
             </div> 
-            <a className="fancy" href="#">
+            <a className="fancy" href="/contact">
                 <span className="top-key"></span>
                 <span className="text">Let's work together</span>
                 <span className="bottom-key-1"></span>
