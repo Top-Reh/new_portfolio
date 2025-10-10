@@ -639,7 +639,7 @@ body::-webkit-scrollbar {
 }
 
 .menuheader {
-  z-index: 9999;
+  z-index: 99999999999;
   position: relative;
 }
 
@@ -840,8 +840,10 @@ body::-webkit-scrollbar {
 }
 
 .portfolio-items-container {
-display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
   gap: 5px;
   width: 100%;
 }
@@ -1223,7 +1225,7 @@ grid-template-rows: repeat(5, 1fr);
 
 
 .socialanimation {
-  z-index: 9999999999999999;
+  z-index: 9999;
 }
 
 @media only screen and (min-width: 640px) {
@@ -1245,6 +1247,10 @@ grid-template-rows: repeat(5, 1fr);
   }
   .scrolltext {
     font-size: 16px;
+  }
+  .portfolio-items-container {
+  display: grid;
+    grid-template-columns: repeat(2,1fr);
   }
 }
 

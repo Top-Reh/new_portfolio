@@ -342,7 +342,7 @@ const Home = () => {
             </p>
           </div>
           <div className='lg:w-2/3 sm:0 flex items-center justify-between'>
-            <div className='sm:absolute absolute sm:-bottom-56 -bottom-56 left-5 sm:left-5 md:relative md:bottom-0 md:right-0'><button className='resumedownload sm:text-xs' ref={leftheroslide}>Download Resume</button></div>
+            <div className='sm:absolute absolute sm:-bottom-56 -bottom-56 left-5 sm:left-5 md:relative md:bottom-0 md:right-0'><a className='resumedownload sm:text-xs' href='/resume.pdf' ref={leftheroslide}>Download Resume</a></div>
             <h1 className='homecreative font-bold text-center lg:text-9xl -mb-6 sm:-mb-10 sm:text-8xl mx-5 text-7xl' ref={rightheroslide}>
               CREATIVE
             </h1>
@@ -431,14 +431,14 @@ const Home = () => {
           <div className='flex items-start justify-start gap-5'>
             <span className='h-full w-2 bg-orange-500 '></span>
             <p className='text-white sm:leading-8 leading-5 lg:text-lg sm:text-sm text-xs'>
-              I’m a 19-year-old full-stack developer currently based in South Korea 🇰🇷, passionate about building scalable web apps and beautiful user experiences. I specialize in modern technologies such as React, Tailwind, Firebase, Node.js, and MongoDB.
+              I’m a 20-year-old full-stack developer currently based in South Korea 🇰🇷, passionate about building scalable web apps and beautiful user experiences. I specialize in modern technologies such as React, Tailwind, Firebase, Node.js, and MongoDB.
 
 I founded WebDevMM, a small agency where I helped local businesses go digital. From landing pages to complete eCommerce systems and dashboards, I’ve delivered solutions that take products from idea to deployment.
 
 My journey began in Myanmar 🇲🇲, where I built strong problem-solving skills, and now continues in Korea, where I’m expanding my expertise and seeking global opportunities.
             </p>
           </div>
-          <a className="fancy" href="#">
+          <a className="fancy" href='/resume.pdf'>
             <span className="top-key"></span>
             <span className="text">Download My CV</span>
             <span className="bottom-key-1"></span>
@@ -446,12 +446,12 @@ My journey began in Myanmar 🇲🇲, where I built strong problem-solving skill
           </a>
           <div className='flex items-center justify-between gap-5'>
             <div className='flex flex-col items-center justify-between gap-2 border-orange-500 border-2 pt-3 pb-3 px-5 rounded-sm bg-orange-500'>
-              <h1 className='text-white lg:text-lg sm:text-sm sm:text-center'>20+</h1>
-              <p className='text-white lg:text-lg sm:text-sm sm:text-center'>Website Development</p>
+              <h1 className='text-white lg:text-lg sm:text-sm sm:text-center'>3+ years</h1>
+              <p className='text-white lg:text-lg sm:text-sm sm:text-center'>Work Experience</p>
             </div>
             <div className='flex flex-col items-center justify-between gap-2 border-orange-500 border-2 pt-3 pb-3 px-5 rounded-sm'>
               <h1 className='text-white lg:text-lg sm:text-sm sm:text-center'>30+</h1>
-              <p className='text-white lg:text-lg sm:text-sm sm:text-center'>Website Designs</p>
+              <p className='text-white lg:text-lg sm:text-sm sm:text-center'>Website Development</p>
             </div>
           </div>
         </div>
@@ -576,7 +576,7 @@ My journey began in Myanmar 🇲🇲, where I built strong problem-solving skill
             }
           {
             singleData && (
-              <div className='single-data fixed top-0 left-0 w-full h-52 sm:h-full bg-black bg-opacity-80 flex items-center justify-center z-50 overflow-y-scroll pt-96' onClick={() => setSingleData(null)}>
+              <div className='single-data fixed top-0 left-0 w-full h-full sm:h-full bg-black bg-opacity-80 flex items-center justify-center z-50 overflow-y-scroll pt-96' onClick={() => setSingleData(null)}>
                 <div className={`single-data-content bg-white p-5 rounded-lg  w-4/5  `} style={{marginTop: singleData.fulldesignurl ? '265%' : '0px'}} onClick={(e) => e.stopPropagation()}>
                   <img src={singleData.imageUrl} alt={singleData.title} className='w-full h-auto mb-3 rounded'/>
                   <h2 className='text-3xl font-bold mb-3'>{singleData.title}</h2>

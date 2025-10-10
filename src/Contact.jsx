@@ -57,8 +57,8 @@ const Contact = () => {
     return () => clearInterval(interval);
 }, [socialanimation]);
   return (
-    <div className='contact w-full h-screen grid grid-cols-2 items-center justify-center gap-36'>
-        <div className='contact-info flex items-center justify-center gap-6 flex-col bg-black h-full w-full '>
+    <div className='contact w-full lg:h-screen flex flex-col lg:pb-0 pb-5 lg:grid lg:grid-cols-2 gap-5 items-center justify-center  '>
+        <div className='contact-info flex items-center justify-center gap-6 flex-col bg-black h-full w-full py-20'>
             <h1 className='font-extrabold text-3xl'>Contact</h1>
             <p className='text-center'>Have a project or idea?<br></br>I’d love to hear about it and help you bring it to life!</p>
             <div className='flex items-center justify-center gap-2 flex-col'>
@@ -101,45 +101,47 @@ const Contact = () => {
              
             </div>
         </div>
-        <div className="form-container flex items-center justify-center">
-            <form className="contact-form" onSubmit={onSubmit}>
-                <div className="contact-form-control">
-                    <input type="contact-text" required name='name'/>
-                    <label>
-                        {['N', 'a', 'm', 'e'].map((letter, index) => (
-                        <span key={index} style={{ transitionDelay: `${index * 50}ms` }}>
-                            {letter}
-                        </span>
-                        ))}
-                    </label>
-                </div>
-                <div className="contact-form-control">
-                    <input type="contact-text" required name='email'/>
-                    <label>
-                        {['E', 'm', 'a', 'i', 'l'].map((letter, index) => (
-                        <span key={index} style={{ transitionDelay: `${index * 50}ms` }}>
-                            {letter}
-                        </span>
-                        ))}
-                    </label>
-                </div>
-                <div className="contact-form-control">
-                    <textarea rows="4" name='message' required></textarea>
-                    <label>
-                        {['M', 'e', 's', 's', 'a', 'g', 'e'].map((letter, index) => (
-                        <span key={index} style={{ transitionDelay: `${index * 50}ms` }}>
-                            {letter}
-                        </span>
-                        ))}
-                    </label>
-                </div>
-                <button type="submit" className="form-submit-btn contact-fancy">
-                    <span className="contact-top-key"></span>
-                    <span className="contact-text">Let's work together</span>
-                    <span className="contact-bottom-key-1"></span>
-                    <span className="contact-bottom-key-2"></span>
-                </button>
-            </form>
+        <div className='contact-form-section flex items-center justify-center h-full w-full'>
+            <div className="form-container flex items-center justify-center">
+                <form className="contact-form" onSubmit={onSubmit}>
+                    <div className="contact-form-control">
+                        <input type="contact-text" required name='name'/>
+                        <label>
+                            {['N', 'a', 'm', 'e'].map((letter, index) => (
+                            <span key={index} style={{ transitionDelay: `${index * 50}ms` }}>
+                                {letter}
+                            </span>
+                            ))}
+                        </label>
+                    </div>
+                    <div className="contact-form-control">
+                        <input type="contact-text" required name='email'/>
+                        <label>
+                            {['E', 'm', 'a', 'i', 'l'].map((letter, index) => (
+                            <span key={index} style={{ transitionDelay: `${index * 50}ms` }}>
+                                {letter}
+                            </span>
+                            ))}
+                        </label>
+                    </div>
+                    <div className="contact-form-control">
+                        <textarea rows="4" name='message' required></textarea>
+                        <label>
+                            {['M', 'e', 's', 's', 'a', 'g', 'e'].map((letter, index) => (
+                            <span key={index} style={{ transitionDelay: `${index * 50}ms` }}>
+                                {letter}
+                            </span>
+                            ))}
+                        </label>
+                    </div>
+                    <button type="submit" className="form-submit-btn contact-fancy">
+                        <span className="contact-top-key"></span>
+                        <span className="contact-text">Let's work together</span>
+                        <span className="contact-bottom-key-1"></span>
+                        <span className="contact-bottom-key-2"></span>
+                    </button>
+                </form>
+            </div>
         </div>
         </div>
   )

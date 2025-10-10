@@ -132,8 +132,8 @@ const About = () => {
           <div className="wave"></div>
           
           <div className="infotop">
-            Projects
-            <div className="name">21+</div>
+            Years of Experience
+            <div className="name">3+</div>
           </div>
         </div>
         <div className="e-card playing" ref={el => (project2slide = el)}>
@@ -144,8 +144,8 @@ const About = () => {
           <div className="wave"></div>
           
           <div className="infotop">
-            Projects
-            <div className="name">21+</div>
+            Website Developments
+            <div className="name">30+</div>
           </div>
         </div>
       </div>
@@ -166,7 +166,7 @@ const About = () => {
       My journey began in Myanmar 🇲🇲, where I built strong problem-solving skills, and now continues in Korea, where I’m expanding my expertise and seeking global opportunities.
                   </p>
                 </div>
-                <a className="fancy" href="#">
+                <a className="fancy" href='/resume.pdf'>
                   <span className="top-key"></span>
                   <span className="text">Download My CV</span>
                   <span className="bottom-key-1"></span>

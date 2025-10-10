@@ -100,16 +100,16 @@ const Portfolio = () => {
   // },[]);
 
   return (
-    <div className="portfolio w-full h-full px-5">
-      <div className="portfolio-header w-full h-96 flex items-center justify-between px-6">
-        <h1 className="text-9xl font-bold text-center" ref={el => (topheroheaderslide = el)}>My Work</h1>
-        <p className="text-lg text-gray-700 w-1/2" ref={el => (topherodescriptionslide = el)}>Here are some of the projects I’ve built that reflect my skills, creativity, and problem-solving approach. Each project represents not only technical execution but also my ability to understand real-world needs and deliver meaningful digital solutions. From agency websites to full eCommerce platforms, I aim to create products that are scalable, user-friendly, and impactful.</p>
+    <div className="portfolio w-full h-full px-5 ">
+      <div className="portfolio-header w-full h-96 flex items-center sm:justify-between justify-center px-6 sm:flex-row flex-col gap-2">
+        <h1 className="md:text-9xl sm:text-7xl text-4xl font-bold text-center" ref={el => (topheroheaderslide = el)}>My Work</h1>
+        <p className="lg:text-lg text-sm text-gray-700 sm:w-1/2 sm:text-start text-center" ref={el => (topherodescriptionslide = el)}>Here are some of the projects I’ve built that reflect my skills, creativity, and problem-solving approach. Each project represents not only technical execution but also my ability to understand real-world needs and deliver meaningful digital solutions. From agency websites to full eCommerce platforms, I aim to create products that are scalable, user-friendly, and impactful.</p>
       </div>
       <div className='portfolio-content px-3 border-b pb-5 flex items-center justify-start gap-4'>
-          <button className={`py-3 px-6 rounded-full font-bold border-solid border border-gray-300 hover:bg-orange-500 hover:text-white ${filter==="All" ? 'bg-orange-500 text-white' : 'bg-white text-black'}`} onClick={() => setFilter('All')}>All</button>
-          <button className={`py-3 px-6 rounded-full font-bold border-solid border border-gray-300 hover:bg-orange-500 hover:text-white ${filter==="Full stack projects" ? 'bg-orange-500 text-white' : 'bg-white text-black'}`} onClick={() => setFilter('Full stack projects')}>Full stack projects</button>
-          <button className={`py-3 px-6 rounded-full font-bold border-solid border border-gray-300 hover:bg-orange-500 hover:text-white ${filter==="Frontend projects" ? 'bg-orange-500 text-white' : 'bg-white text-black'}`} onClick={() => setFilter('Frontend projects')}>Frontend projects</button>
-          <button className={`py-3 px-6 rounded-full font-bold border-solid border border-gray-300 hover:bg-orange-500 hover:text-white ${filter==="Design" ? 'bg-orange-500 text-white' : 'bg-white text-black'}`} onClick={() => setFilter('Design')}>Design</button>
+          <button className={`py-3 px-3 sm:px-6 rounded-full sm:text-sm text-xs font-bold border-solid border border-gray-300 hover:bg-orange-500 hover:text-white ${filter==="All" ? 'bg-orange-500 text-white' : 'bg-white text-black'}`} onClick={() => setFilter('All')}>All</button>
+          <button className={`py-3 px-3 sm:px-6 rounded-full sm:text-sm text-xs font-bold border-solid border border-gray-300 hover:bg-orange-500 hover:text-white ${filter==="Full stack projects" ? 'bg-orange-500 text-white' : 'bg-white text-black'}`} onClick={() => setFilter('Full stack projects')}>Full stack projects</button>
+          <button className={`py-3 px-3 sm:px-6 rounded-full sm:text-sm text-xs font-bold border-solid border border-gray-300 hover:bg-orange-500 hover:text-white ${filter==="Frontend projects" ? 'bg-orange-500 text-white' : 'bg-white text-black'}`} onClick={() => setFilter('Frontend projects')}>Frontend projects</button>
+          <button className={`py-3 px-3 sm:px-6 rounded-full sm:text-sm text-xs font-bold border-solid border border-gray-300 hover:bg-orange-500 hover:text-white ${filter==="Design" ? 'bg-orange-500 text-white' : 'bg-white text-black'}`} onClick={() => setFilter('Design')}>Design</button>
       </div>
       <div className='portfolio-items-container pt-5 '>
         
@@ -118,7 +118,7 @@ const Portfolio = () => {
             item.type === filter || filter === 'All' ? (
               <div key={index} className={`portfolio-item `} style={{backgroundImage: `url(${item.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center'}} onClick={() => setSingleData(item)}>
                 <p className="portfolio-item-title">{item.title}</p>
-                <p className="small-desc">
+                <p className="small-desc ">
                   {item.description}
                 </p>
               </div>
