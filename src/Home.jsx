@@ -341,7 +341,7 @@ const Home = () => {
           </div>
           <div className='lg:w-2/3 sm:0 flex items-center justify-between'>
             <div className='sm:absolute absolute sm:-bottom-56 -bottom-56 left-5 sm:left-5 md:relative md:bottom-0 md:right-0'><a className='resumedownload sm:text-xs' href='/resume.pdf' ref={leftheroslide}>Download Resume</a></div>
-            <h1 className='homecreative font-bold text-center lg:text-9xl -mb-6 sm:-mb-10 sm:text-8xl mx-5 text-7xl' ref={rightheroslide}>
+            <h1 className='homecreative font-bold text-center lg:text-9xl -mb-8 sm:-mb-10 sm:text-8xl mx-5 text-[67px]' ref={rightheroslide}>
               CREATIVE
             </h1>
             <div className='sm:absolute absolute sm:-bottom-56 -bottom-56 sm:right-5 right-5 md:relative md:bottom-0 md:right-0'>
@@ -381,7 +381,7 @@ const Home = () => {
         </div>
         <div className='relative w-3/5  flex items-center justify-center  ' ref={bottomheroslide}>
           <img src={portimg} alt='Portfolio' className='mx-auto lg:-mt-52 md:-mt-32 sm:-mt-24 -mt-16' style={{width:'800px'}}/>
-          <h1 className='font-bold text-center md:text-9xl text-white absolute md:bottom-0 sm:text-8xl text-7xl -bottom-6 sm:-bottom-10' ref={bottomheroslide}>
+          <h1 className='font-bold text-center md:text-9xl text-white absolute md:bottom-0 sm:text-8xl text-[69px] -bottom-6 sm:-bottom-10' ref={bottomheroslide}>
             DEVELOPER
           </h1>
         </div>
