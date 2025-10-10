@@ -20,7 +20,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/admin" element={< Admin/>} />
-        <Route path="*" element={<h1>Page not found!</h1>} /> {/* 404 Page */}
+        <Route path="*" element={<Home />} /> {/* 404 Page */}
       </Routes>
     <footer className='w-full h-20 bg-gray-900 flex items-center justify-center'>
         <p className='text-white'>© 2023 Top Reh. All rights reserved.</p>
