@@ -340,7 +340,7 @@ const Home = () => {
             </p>
           </div>
           <div className='lg:w-2/3 sm:0 flex items-center justify-between'>
-            <div className='sm:absolute absolute sm:-bottom-56 -bottom-56 left-5 sm:left-5 md:relative md:bottom-0 md:right-0'><a className='resumedownload sm:text-xs' href='/resume.pdf' ref={leftheroslide}>Download Resume</a></div>
+            <div className='sm:absolute absolute sm:-bottom-56 -bottom-56 left-5 sm:left-5 md:relative md:bottom-0 md:right-0'><a className='resumedownload sm:text-xs' href={`${import.meta.env.BASE_URL}resume.pdf`} ref={leftheroslide}>Download Resume</a></div>
             <h1 className='homecreative font-bold text-center lg:text-9xl -mb-8 sm:-mb-10 sm:text-8xl mx-5 text-[62px]' ref={rightheroslide}>
               CREATIVE
             </h1>
