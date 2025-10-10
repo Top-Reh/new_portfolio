@@ -459,7 +459,7 @@ My journey began in Myanmar 🇲🇲, where I built strong problem-solving skill
         <h1 className='font-semibold text-white text-4xl' ref={skillheaderslide}>My <span className='text-orange-500'>SKILLS</span></h1>
         <div className='flex items-center justify-center gap-5 border-orange-500 border-b-2 pt-3 pb-5 px-5 rounded-sm' ref={skillsetsslide}>
           <div
-            className='skills-slider flex gap-5'
+            className='skills-slider flex gap-5 overflow-hidden'
             style={{
               transform: `translateX(-${slideIndex * 80}px)`,
               transition: slideIndex === 1 ? 'transform 0.5s cubic-bezier(.77,0,.18,1)' : 'none'
