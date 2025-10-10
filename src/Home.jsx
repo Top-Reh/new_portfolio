@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 import portimg from './assets/mysitnobg.png';
-import image1 from './assets/bioimages/image1.jpg';
 import me1 from './assets/bioimages/me1.jpg';
 import me2 from './assets/bioimages/me2.jpg';
 import me3 from './assets/bioimages/me3.png';
@@ -13,7 +12,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { koreaagencyhomesection,portfolioherosection, hotelhomesection, hoodieherosection, travelherosection } from './assets/designs/designs';
 import gsap from 'gsap';
 import Swal from 'sweetalert2';
-import { m } from 'framer-motion';
 
 const Home = () => {
   const [socialanimation, setSocialAnimation] = useState(0);
