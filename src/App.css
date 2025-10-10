@@ -472,7 +472,7 @@ body::-webkit-scrollbar {
 
 /* contact form */ 
 .form-container {
-  width: 450px;
+  width: 390px;
   background: linear-gradient(#f68f46, #f68f46) padding-box,
               linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
   border: 2px solid transparent;
@@ -593,7 +593,7 @@ body::-webkit-scrollbar {
 .contact-form-control {
   position: relative;
   margin: 10px 0 40px;
-  width: 400px;
+  width: 350px;
 }
 
 .contact-form-control input,.contact-form-control textarea {
@@ -649,7 +649,6 @@ body::-webkit-scrollbar {
   width: 400px;
   height: 500px;
   transform-style: preserve-3d;
-  display: flex;
   justify-content: center;
   align-items: center;
   scale: 1.5;

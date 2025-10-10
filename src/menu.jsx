@@ -6,6 +6,7 @@ const Menu = () => {
   const [headerBg, setHeaderBg] = useState(false);
   const [openmenu, setOpenMenu] = useState(false);
   const [gotoLink, setGotoLink] = useState('Home');
+  const [mobileview, setmobileview] = useState(false)
 
   const logo = useRef(null);
   const menu = useRef(null);
@@ -29,6 +30,32 @@ const Menu = () => {
       window.removeEventListener('scroll', changeHeaderBg);
     };
   }, []);
+
+   function useBreakpoint() {
+      const [width, setWidth] = useState(window.innerWidth);
+      useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+      }, []);
+      return width;
+    }
+  
+    // In your component:
+    const width = useBreakpoint();
+  
+    // let socialdisplay;
+    // if (width < 768) { // desktop
+    //   socialdisplay = 'none';
+    // }
+  
+    useEffect(() => {
+  if (width >= 1280 || width >= 640) {
+    setmobileview(false);
+  } else {
+    setmobileview(true);
+  }
+}, [width]);
 
   return (
     <div className='w-full flex items-center flex-col gap-0 transition-all ease-out  px-10 fixed top-0 z-50' style={{ backgroundColor: headerBg || openmenu ? 'white' : 'transparent' }}>
@@ -59,7 +86,7 @@ const Menu = () => {
               <li className={`cursor-pointer hover:text-orange-500 transition-all ease-out  w-full text-center ${gotoLink === 'Contact' ? 'text-2xl text-orange-500 py-3' : 'text-xl text-black py-0'}`} ><Link onClick={() => {setGotoLink('Contact'); setTimeout(() => setOpenMenu(false), 200);}} to="/contact">Contact</Link></li>
               <span className={`border-b-2 border-t-2 border-orange-500 absolute h-14 w-full transition-all ease-out z-0 ${gotoLink === 'Home' ? 'top-0' : gotoLink ==='About' ? 'top-12' : gotoLink ==='Portfolio' ? 'top-24' : 'bottom-0'}`}></span>
             </ul>
-             <div className="svg-frame" style={{display: openmenu ? 'flex' : 'none',transition:'1s'}}>
+             <div className="svg-frame" style={{display: mobileview ? 'hidden' : openmenu ? 'flex' : 'none' ,transition:'1s'}}>
       <svg style={{ "--i": 0, "--j": 0 }}>
         <g id="out1">
           <path d="M72 172C72 116.772 116.772 72 172 72C227.228 72 272 116.772 272 172C272 227.228 227.228 272 172 272C116.772 272 72 227.228 72 172ZM197.322 172C197.322 158.015 185.985 146.678 172 146.678C158.015 146.678 146.678 158.015 146.678 172C146.678 185.985 158.015 197.322 172 197.322C185.985 197.322 197.322 185.985 197.322 172Z"></path>

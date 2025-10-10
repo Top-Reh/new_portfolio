@@ -387,7 +387,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className='bio w-full h-screen bg-white flex items-center justify-center flex-col gap-4'>
+      <div className='bio w-full h-screen bg-white flex items-center justify-center flex-col gap-4 px-6'>
         {bioBlocks.map((block, idx) => {
           if (block.type === 'text-image') {
             return (
@@ -455,7 +455,7 @@ My journey began in Myanmar 🇲🇲, where I built strong problem-solving skill
         </div>
       </div>
 
-      <div className='skill w-full h-screen bg-black flex items-center justify-center flex-col gap-5'>
+      <div className='skill w-full h-screen bg-black flex items-center justify-center flex-col gap-5 px-6'>
         <h1 className='font-semibold text-white text-4xl' ref={skillheaderslide}>My <span className='text-orange-500'>SKILLS</span></h1>
         <div className='flex items-center justify-center gap-5 border-orange-500 border-b-2 pt-3 pb-5 px-5 rounded-sm' ref={skillsetsslide}>
           <div
@@ -592,7 +592,7 @@ My journey began in Myanmar 🇲🇲, where I built strong problem-solving skill
         </div>
       </div>
 
-      <div className='contact w-full md:mt-0 sm:mt-5 mb-5 md:h-screen flex flex-col items-center justify-center md:gap-36 sm:gap-5 md:flex-row sm:flex-col'>
+      <div className='contact w-full md:mt-0 sm:mt-5 mb-5 md:h-screen flex flex-col items-center justify-center md:gap-36 gap-5 sm:gap-5 md:flex-row sm:flex-col'>
         <div className='contact-info flex items-center justify-center gap-6 md:flex-col sm:flex-row flex-wrap'>
           <h1 className='font-extrabold text-3xl'>Contact</h1>
           <p className='md:text-center sm:text-start text-center'>Have a project or idea?<br />I’d love to hear about it and help you bring it to life!</p>
