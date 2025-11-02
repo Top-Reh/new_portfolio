@@ -46,7 +46,7 @@ const Home = () => {
           setResult("Sending....");
           const formData = new FormData(event.target);
   
-          formData.append("access_key", "d91f34c9-49a4-448d-a471-294326ac7fd0");
+          formData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
   
           const response = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
@@ -647,7 +647,7 @@ My journey began in Myanmar 🇲🇲, where I built strong problem-solving skill
             </div>
             <button type="submit" className="form-submit-btn contact-fancy">
               <span className="contact-top-key"></span>
-              <span className="contact-text">Let's work together</span>
+              <span className="contact-text">Submit</span>
               <span className="contact-bottom-key-1"></span>
               <span className="contact-bottom-key-2"></span>
             </button>

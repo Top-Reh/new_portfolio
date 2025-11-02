@@ -1,8 +1,7 @@
-import { getDownloadURL, ref, uploadBytes } from '@firebase/storage';
-import React, { useEffect, useState } from 'react'
-import { collection, deleteDoc, doc, getDocs, orderBy, query, setDoc} from 'firebase/firestore';
-import { db, storage} from './firebase';
-import {v4 as uuid} from "uuid";
+// import { getDownloadURL, ref, uploadBytes } from '@firebase/storage';
+import React, { useState } from 'react'
+//import { db, storage} from './firebase';
+//import {v4 as uuid} from "uuid";
 
 const Admin = () => {
   const [tab, setTab] = useState('newProject');
@@ -14,50 +13,28 @@ const Admin = () => {
     description: '',
     image: null
   });
-  const [submitteddata,setSubmitteddata] = useState(null);
+  // const [submitteddata,setSubmitteddata] = useState(null);
 
-  const handleSubmit = async(e) => {
-    e.preventDefault();
-    confirm("Are you sure you want to submit the form?");
-    console.log(inputsdata);
-    const uniqueid = uuid();
-    setSubmitteddata(inputsdata);
-    const fileRef = ref(storage, `projectImages/${inputsdata.image.name}`);
-    await uploadBytes(fileRef, inputsdata.image);
-    const url = await getDownloadURL(fileRef);
-    await setDoc(doc(db, "projects", uniqueid), {
-      id: uniqueid,
-      title: inputsdata.title,
-      type: inputsdata.type,
-      link: inputsdata.link,
-      description: inputsdata.description,
-      imageUrl: url,
-      createdAt: new Date().getTime()
-    });
-    console.log('submiteddata' , submitteddata);
-  }
-
-  const handleDelete = async(id) => {
-    // console.log('delete id', id);
-    // setDeleteid(id);
-    confirm(`Are you sure you want to delete this project? ID: ${id}`);
-    await deleteDoc(doc(db, "projects", id));
-  }
-
-  useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const q = query(collection(db, "projects"), orderBy("createdAt", "desc"));
-            const snapshot = await getDocs(q);
-            const blogs = snapshot.docs.map(doc => ( doc.data()));
-            setUploadData(blogs);
-           console.log('data',blogs);
-        } catch (error) {
-          console.error("Error fetching data: ", error);
-        }
-      }
-      fetchData();
-    },[]);
+  // const handleSubmit = async(e) => {
+  //   e.preventDefault();
+  //   confirm("Are you sure you want to submit the form?");
+  //   console.log(inputsdata);
+  //   const uniqueid = uuid();
+  //   setSubmitteddata(inputsdata);
+  //   const fileRef = ref(storage, `projectImages/${inputsdata.image.name}`);
+  //   await uploadBytes(fileRef, inputsdata.image);
+  //   const url = await getDownloadURL(fileRef);
+  //   await setDoc(doc(db, "projects", uniqueid), {
+  //     id: uniqueid,
+  //     title: inputsdata.title,
+  //     type: inputsdata.type,
+  //     link: inputsdata.link,
+  //     description: inputsdata.description,
+  //     imageUrl: url,
+  //     createdAt: new Date().getTime()
+  //   });
+  //   console.log('submiteddata' , submitteddata);
+  // }
 
   return (
     <div className="admin">
@@ -134,7 +111,7 @@ const Admin = () => {
               <span className="admin-input-highlight"></span>
             </div>
             <div className='flex justify-start'>
-                <button className='admin-form-btn' onClick={handleSubmit}> Submit
+                <button className='admin-form-btn'> Submit
                   <span></span>
                 </button>
             </div>
@@ -219,7 +196,7 @@ const Admin = () => {
                       <div className='flex justify-start '>
                         <button className='w-full p-5 border-r-2 border-t-2'> Edit
                         </button>
-                        <button className='w-full p-5 border-t-2' onClick={() => handleDelete(item.id)}> Delete
+                        <button className='w-full p-5 border-t-2'> Delete
                         </button>
                       </div>
                   </div>
