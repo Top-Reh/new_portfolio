@@ -9,7 +9,7 @@ import aboutimage from './assets/mystandingnobg.png';
 import { html, css, javascript, react, tailwind, firebase, nodejs, mongodb, figma, wordpress, express, github } from './assets/skillsimages/skillsimagesexport';
 import { themark, webdevmm } from './assets/selfprojects/selfprojects';
 import { Link, useLocation } from 'react-router-dom';
-import { koreaagencyhomesection,portfolioherosection, hotelhomesection, hoodieherosection, travelherosection } from './assets/designs/designs';
+import { portfolioherosection, hotelhomesection, hoodieherosection, travelherosection,resumiai } from './assets/designs/designs';
 import gsap from 'gsap';
 import Swal from 'sweetalert2';
 
@@ -30,11 +30,12 @@ const Home = () => {
     { name: "html", imagesrc: html, description: '– Build structured, accessible, and SEO-friendly websites' },
     { name: "css", imagesrc: css, description: '– Design responsive, elegant, and modern layouts' },
   ]);
-  const [data, setData] = useState([{id:1, type:"Design", imageUrl:portfolioherosection, title:'Photographer Portfolio', description:'A sleek and modern portfolio website for a professional photographer to showcase their work and attract potential clients.'},
-          {id:2, type:"Design", imageUrl:hotelhomesection, title:'Hotel Booking Website', description:'A comprehensive hotel booking website with room availability, pricing details, and secure payment options.'},
-    {id:3, type:'Design', imageUrl:hoodieherosection, title:'Hoodie Shop', description:'A comprehensive e-commerce platform for selling hoodies, featuring user authentication, product management, and a secure payment gateway.'},
-      {id:4, type:'Design', imageUrl:travelherosection, title:'Travel Agency Website', description:'A visually appealing and user-friendly website for a travel agency, showcasing various travel packages, destinations, and customer testimonials.'},
-    { id: 5, type: 'Design', imageUrl: koreaagencyhomesection, title: 'Korea School Website Design', description: 'A creative and engaging website design for a language school specializing in teaching Korean, featuring course information and enrollment options.' }
+  const [data, setData] = useState([
+    { id: 1, type: 'Full stack projects', link:'https://resumeai-wheat.vercel.app/', imageUrl: resumiai, title: 'Resumi AI app', description: 'An AI-powered resume review platform that extracts and analyzes PDF resumes to provide personalized insights and suggestions.' },
+    {id:2, type:"Design", imageUrl:portfolioherosection, title:'Photographer Portfolio', description:'A sleek and modern portfolio website for a professional photographer to showcase their work and attract potential clients.'},
+          {id:3, type:"Design", imageUrl:hotelhomesection, title:'Hotel Booking Website', description:'A comprehensive hotel booking website with room availability, pricing details, and secure payment options.'},
+    {id:4, type:'Design', imageUrl:hoodieherosection, title:'Hoodie Shop', description:'A comprehensive e-commerce platform for selling hoodies, featuring user authentication, product management, and a secure payment gateway.'},
+      {id:5, type:'Design', imageUrl:travelherosection, title:'Travel Agency Website', description:'A visually appealing and user-friendly website for a travel agency, showcasing various travel packages, destinations, and customer testimonials.'},
     
   ]);
   const [slideIndex, setSlideIndex] = useState(0);

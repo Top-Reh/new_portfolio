@@ -22,7 +22,8 @@ import { agency,
     samsungfront,
     nodecommerce,
     tictactoe,
-    nikefront } from './assets/designs/designs';
+    nikefront,
+    resumiai } from './assets/designs/designs';
 import {koreaschool,
     headphone,
     hoodieshop,
@@ -49,13 +50,14 @@ const Portfolio = () => {
   {id:21, type:'Frontend projects', imageUrl:tictactoe, link:'https://top-reh.github.io/tictaptoe/', title:'Tic Tac Toe Game', description:'A simple and interactive Tic Tac Toe game built with HTML, CSS, and JavaScript, allowing two players to compete against each other.'},
   {id:19, type:'Design', imageUrl:samsungfront, link:'https://top-reh.github.io/samsungclone/', title:'Samsung Front Page Redesign', description:'A sleek redesign of the Samsung front page, emphasizing modern design principles and user experience.'},
   {id:17, type:'Design', imageUrl:guccifront, link:'https://top-reh.github.io/gucciwebsite/', title:'Gucci Front Page Redesign', description:'A modern redesign of the Gucci front page, focusing on high fashion aesthetics and user experience.'},
-  {id:20, type:'Full stack project', imageUrl:nodecommerce, link:'https://github.com/Top-Reh/node-ecommerce', title:'Node Commerce - E-commerce Platform', description:'A full-featured e-commerce platform built with Node.js, featuring user authentication, product listings, shopping cart functionality, and payment integration.'},
+  {id:20, type:'Full stack projects', imageUrl:nodecommerce, link:'https://github.com/Top-Reh/node-ecommerce', title:'Node Commerce - E-commerce Platform', description:'A full-featured e-commerce platform built with Node.js, featuring user authentication, product listings, shopping cart functionality, and payment integration.'},
   {id:16, type:'Full stack projects', imageUrl:receipt, link:'https://top-reh.github.io/receipt-generator/', title:'Receipt Generator', description:'A web-based receipt generator that allows users to create and customize receipts for their business transactions, complete with itemized lists and total calculations.'},
   {id:15, type:'Full stack projects', imageUrl:typingtest, link:'https://top-reh.github.io/typing-test/', title:'Typing Test Application', description:'A web-based typing test application that measures typing speed and accuracy, providing users with real-time feedback and performance statistics.'},
   {id:11, type:'Full stack projects', imageUrl:chattingapp, link:'https://top-reh.github.io/chatting-app/', title:'Chatting App', description:'A real-time chatting application that allows users to create accounts, join chat rooms, and send instant messages to each other.'},
   {id:14, type:'Full stack projects', imageUrl:admindashboard, link:'https://top-reh.github.io/admindashboard/', title:'Admin Dashboard', description:'A responsive admin dashboard template with various widgets, charts, and data visualization tools for managing web applications.'},
   {id:12, type:'Full stack projects', imageUrl:themarkhero, link:'https://top-reh.github.io/the-mark/', title:'The Mark - E-commerce Website', description:'A full-featured e-commerce platform with user authentication, product listings, shopping cart functionality, and payment integration.'},
   {id:13, type:'Full stack projects', imageUrl:webdevmmhero, link:'https://webdevmm.com/', title:'WebDevMM - Freelance Marketplace', description:'A freelance marketplace connecting clients with skilled web developers for various projects, featuring user profiles, project listings, and secure payment options.'},
+      { id: 14, type: 'Full stack projects', link:'https://resumeai-wheat.vercel.app/', imageUrl: resumiai, title: 'Resumi AI app', description: 'An AI-powered resume review platform that extracts and analyzes PDF resumes to provide personalized insights and suggestions.' },
 ]);
   const [filter, setFilter] = useState('All');
   const [singleData, setSingleData] = useState(null);

@@ -21,6 +21,7 @@ import samsungfront from './samsungfront.png';
 import nodecommerce from './nodecommerce.png';
 import tictactoe from './tictactoe.png';
 import nikefront from './nikefront.png';
+import resumiai from './resumiai.png';
 
 export {
     agency,
@@ -45,5 +46,6 @@ export {
     samsungfront,
     nodecommerce,
     tictactoe,
-    nikefront
+    nikefront,
+    resumiai
 };
