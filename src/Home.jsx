@@ -310,7 +310,6 @@ const Home = () => {
     return width;
   }
 
-  // In your component:
   const width = useBreakpoint();
 
   // let socialdisplay;
