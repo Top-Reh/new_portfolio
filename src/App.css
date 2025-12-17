@@ -169,21 +169,21 @@ body::-webkit-scrollbar {
 }
 
 .abouttitle {
-  background-image: url('./assets/myaboutbg.png'); /* Your desired image */
-  background-size: cover; /* Ensures the image covers the text area */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-position: -590px; /* Centers the image */
-  -webkit-background-clip: text; /* Clip the background to the text (for Webkit browsers) */
-  background-clip: text; /* Clip the background to the text (for other browsers) */
-  color: transparent; /* Make the text transparent to reveal the background image */
-  font-size: 153px; /* Adjust font size for better visibility */
+  background-image: url('./assets/myaboutbg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -590px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 153px;
   font-weight: bold;
-  text-align: center; /* Center the text */
+  text-align: center;
   width: 220px;
   height: 100%;
   line-height: 140px;
   display: flex;
-  align-items: center; /* Vertically center the text */
+  align-items: center;
 }
 
 
@@ -200,8 +200,6 @@ body::-webkit-scrollbar {
   opacity: 1;
   z-index: 20;
 }
-
-/* portfolio card */
 
 .portfoliocard {
   /* width: 190px; */
@@ -589,7 +587,6 @@ body::-webkit-scrollbar {
   border-color: #fff;
 } */
 
-/* From Uiverse.io by liyaxu123 */ 
 .contact-form-control {
   position: relative;
   margin: 10px 0 40px;
@@ -858,7 +855,6 @@ body::-webkit-scrollbar {
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 71%, rgba(0, 0, 0, 1) 71%, rgba(0, 0, 0, 1) 100%);
 }
 
-/* From Uiverse.io by MikeAndrewDesigner */ 
 .e-card {
   background: transparent;
   box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
